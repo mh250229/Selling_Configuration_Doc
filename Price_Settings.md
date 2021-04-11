@@ -3,7 +3,7 @@
 
 ## MSU Strategies
 
-Multiple Selling Unit (MSU) is a pricing method common in the US market, which is used as an incentive to encourage customers to buy multiple units in order to get the listed price. 
+Multiple Selling Unit (MSU) is a pricing method common in the US market, which is used as an incentive to encourage customers to buy multiple units in order to get the listed price.
 The pricing method defines a price for defined quantity of units (always more than 1) vs. defining a price for a single unit of an item.
 
 Defines how cent rounding works for MSU priced items.
