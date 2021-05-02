@@ -37,14 +37,13 @@ Message "Cart contains restriction"
 
 **HTTP Methods:**
 
-* PUT Message_PUT
-* GET Message_Get
+* PUT VoidLimitRules_Put
 
-## GET BusinessRules_GetAll
+## PUT VoidLimitRules_Put
 
-Used to retrieve all the business rules set up in the system.
+Used to add a business rule to the system.
 
-/emerald/selling-service/c1/selling-configuration/message-settings/messages/{messageId}
+/emerald/selling-service/c1/selling-configuration/business-rules-settings/void-limits/{ruleId}
 
 ```json
 
@@ -56,6 +55,6 @@ Request
 
 Response
 {
-   OK
+   
 }
 ```
