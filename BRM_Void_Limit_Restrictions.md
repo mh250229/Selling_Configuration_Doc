@@ -31,30 +31,167 @@ The following Action type options are supported by the Void Item BRM:
 * Input data required
 * Notification
 
-The Cart status cannot be updated to Tender while the cart contains restrictions. If the client attempts to update the cart status, the following error is returned.
-ErrorCode "CartContainRestrictions"
-Message "Cart contains restriction"
-
 **HTTP Methods:**
 
 * PUT VoidLimitRules_Put
+* GET VoidLimitRules_Get
+* PUT Put prohibit Actions for Void Limit Restrictions
+* GET Put prohibit Actions for Void Limit Restrictions
 
-## PUT VoidLimitRules_Put
+## Void Item Business Rule
 
-Used to add a business rule to the system.
+Create the void item business rule.
 
+PUT
 /emerald/selling-service/c1/selling-configuration/business-rules-settings/void-limits/{ruleId}
 
 ```json
 
 Request
 {
-  
+"maxAllowedAmountperLine": 50.0,
+    "conditions": {
+        "locationCondition": {
+            "includedLocations": [{
+                    "enterpriseUnitId": "{{nep-enterprise-unit}}"
+                }
+            ]
+        },
+        "productCondition": {
+            "includedProducts": [{
+                    "value": "{{includedItemId}}"
+                }
+            ]
+        },
+        "customerOrderCondition": {
+            "{{customerOrderConditionKey}}": "{{customerOrderConditionValue}}"
+        }
+    },
+    "tag": "{{contextType}}"
 }
 
 
-Response
+Response 200 OK
 {
-   
+   OK
+}
+```
+
+Add the relevant Action Type.
+
+Prerequisite: Create a Message. See Messages.
+
+PUT
+/emerald/selling-service/c1/selling-configuration/business-rules-settings/void-limits/{ruleId}/prohibit-action
+
+```json
+Request
+{
+    "scope": "Request",
+    "actionType": "Prohibit",
+    "MessageId": "Void is Prohibited"
+}
+
+Response 200 OK
+{
+   OK
+}
+```
+
+PUT
+/emerald/selling-service/c1/selling-configuration/business-rules-settings/void-limits/{ruleId}/approval-action
+
+```json
+Request
+{
+    "authorizedRoles": [
+        "Supervisor"
+    ],
+    "scope": "Request",
+    "actionType": "ApprovalAction",
+    "MessageId": "Supervisor Approval Required"
+}
+
+Response 200 OK
+{
+   OK
+}
+```
+
+PUT
+/emerald/selling-service/c1/selling-configuration/business-rules-settings/void-limits/{ruleId}/confirmation-action
+
+```json
+Request
+{
+    "scope": "Request",
+    "actionType": "ConfirmationAction",
+    "MessageId": "Confirmation Required"
+}
+
+Response 200 OK
+{
+   OK
+}
+```
+
+PUT
+/emerald/selling-service/c1/selling-configuration/business-rules-settings/void-limits/{ruleId}/notification-action
+
+```json
+Request
+{
+    "scope": "Request",
+    "actionType": "NotificationAction",
+    "MessageId": "Item cannot be voided"
+}
+
+Response 200 OK
+{
+   OK
+}
+```
+
+PUT
+/emerald/selling-service/c1/selling-configuration/business-rules-settings/void-limits/{ruleId}/input-data-action
+
+```json
+Request
+{
+    "inputLabel": "{{ruleId}}",
+    "inputName": "{{ruleId}}",
+    "inputType": {
+        "inputType": "{{inputType}}"
+    },
+    "scope": "Request",
+    "actionType": "{{actionType}}",
+    "MessageId": "{{messageId}}"
+}
+
+Response 200 OK
+{
+   OK
+}
+```
+
+PUT
+/emerald/selling-service/c1/selling-configuration/business-rules-settings/void-limits/{ruleId}/reason-code-action
+
+```json
+Request
+{
+    "reasonCodeIds": [
+        "11017",
+        "11016",
+        "11015"
+    ],
+    "scope": "Request",
+    "actionType": "ReasonCodeAction",
+    "MessageId": "VoidLimit_SelectReasonCode"
+}
+
+Response 200 OK
+{
+   OK
 }
 ```
