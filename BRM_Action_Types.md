@@ -148,7 +148,7 @@ Used to add an Input Data Action Type to a BRM or Age Restriction.
 
 PUT
 
-/emerald/selling-service/c1/selling-configuration/business-rules-settings/void-limits/{ruleId}/confirmation-action
+/emerald/selling-service/c1/selling-configuration/business-rules-settings/void-limits/{ruleId}/input-data-action
 
 ```json
 Request
