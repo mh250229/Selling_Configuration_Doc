@@ -34,29 +34,24 @@ Request
     "actionType": "Prohibit",
     "MessageId": "Void is Prohibited"
 }
+```
 
-
+```json
 Response Status OK
 {
    OK
 }
 ```
 
-## Retrieve Prohibit Action
+## Get Prohibit Action
 
-Used to get Prohibit Action Type details.
+Used to retrieve Prohibit Action Type details.
 
 GET
 
 /emerald/selling-service/c1/selling-configuration/business-rules-settings/void-limits/{ruleId}/prohibit-action
 
 ```json
-Request
-{
- 
-}
-
-
 Response Status OK
 {
     "actionType": "ProhibitAction",
@@ -83,8 +78,9 @@ Request
     "actionType": "ApprovalAction",
     "MessageId": "Supervisor Approval Required"
 }
+```
 
-
+```json
 Response Status OK
 {
    OK
@@ -111,8 +107,9 @@ Request
     "actionType": "ReasonCodeAction",
     "MessageId": "VoidLimit_SelectReasonCode"
 }
+```
 
-
+```json
 Response Status OK
 {
    OK
@@ -134,8 +131,9 @@ Request
     "actionType": "ConfirmationAction",
     "MessageId": "Confirmation Required"
 }
+```
 
-
+```json
 Response Status OK
 {
    OK
@@ -148,7 +146,7 @@ Used to add an Input Data Action Type to a BRM or Age Restriction.
 
 PUT
 
-/emerald/selling-service/c1/selling-configuration/business-rules-settings/void-limits/{ruleId}/input-data-action
+/emerald/selling-service/c1/selling-configuration/business-rules-settings/void-limits/{ruleId}/confirmation-action
 
 ```json
 Request
@@ -162,8 +160,9 @@ Request
     "actionType": "InputDataRequired",
     "MessageId": "AlcoholSaleRestrictedMessage"
 }
+```
 
-
+```json
 Response Status OK
 {
    OK
@@ -185,8 +184,9 @@ Request
     "actionType": "NotificationAction",
     "MessageId": "Item cannot be voided"
 }
+```
 
-
+```json
 Response Status OK
 {
    OK

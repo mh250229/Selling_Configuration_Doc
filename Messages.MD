@@ -39,8 +39,9 @@ Request
         }
     ]
 }
+```
 
-
+```json
 Response Status OK
 {
    OK
@@ -55,7 +56,7 @@ GET
 
 /emerald/selling-service/c1/selling-configuration/message-settings/messages
 
-The following example shows a response to retrieve the messages defined in the system.
+The following example shows a response when a request is sent to retrieve the messages defined in the system.
 
 ```json
 Response
