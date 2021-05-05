@@ -12,7 +12,7 @@ Reason codes indicate the reason an activity is performed. For example, when the
 
 The following examples show a request to add a Reason Code Groups to contain the reason codes when an item price is overridden.
 
-## Add Reason Code Group
+## Add Reason Code Groups
 
 Used to add Reason Code groups.
 
@@ -39,20 +39,13 @@ Response Status OK
 }
 ```
 
-## Get Reason Code Group
+## Get Reason Code Groups
 
 Used to get Reason Code groups.
 
 GET
 
 /emerald/selling-service/c1/selling-configuration/reason-code-settings/reason-code-groups
-
-```json
-Request
-{
-
-}
-```
 
 ```json
 Response Status OK
@@ -110,13 +103,6 @@ Used to retrieve Reason Codes.
 GET
 
 /emerald/selling-service/c1/selling-configuration/reason-code-settings/reason-codes
-
-```json
-Request
-{
-
-}
-```
 
 ```json
 Response Status OK
