@@ -5,8 +5,8 @@ Messages are configured for Business Rules and Age Restrictions.
 **HTTP Methods:**
 
 - PUT Message_PUT
-- DELETE Message_Delete
-- GET Message_Get
+- DELETE Message_DELETE
+- GET Message_GET
 
 ## Add Message
 
