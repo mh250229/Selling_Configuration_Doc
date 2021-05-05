@@ -2,15 +2,15 @@
 
 The Cart API supports the Price Override BRM.
 
-TThe BRM is triggered when the product price is overridden by the cashier, and the new price exceeds the maximum percentage allowed to override an item price.
+The BRM is triggered when the product price is overridden, and the new price exceeds the maximum percentage allowed to override an item price.
 
 The BRM is set up as follows:
 
 * Rule Id
 * Rule Type – PriceOverride
-* RApplied on -Item
-* RMax Discount (percent)
-* RAction Type
+* Applied on -Item
+* Max Discount (percent)
+* Action Type
 
 The Price Override BRM supports the following Action Types:
 
