@@ -8,10 +8,10 @@ Messages are configured for Business Rules and Age Restrictions.
 - DELETE Message_Delete
 - GET Message_Get
 
-## PUT Message_PUT
+## Add Message
 
 Used to add a message in the system.
-
+PUT
 /emerald/selling-service/c1/selling-configuration/message-settings/messages/{messageId}
 
 ```json
@@ -45,10 +45,10 @@ Response Status OK
 }
 ```
 
-## GET Message_GET
+## Retrieve Messages
 
 Used to retrieve the messages in the system.
-
+GET
 /emerald/selling-service/c1/selling-configuration/message-settings/messages
 
 ```json
