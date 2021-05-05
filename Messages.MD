@@ -55,10 +55,10 @@ GET
 
 /emerald/selling-service/c1/selling-configuration/message-settings/messages
 
-The following example shows a request to and response to retrieve the messages defined in the system.
+The following example shows a response to retrieve the messages defined in the system.
 
 ```json
-Request
+Response
 {
     "lastPage": true,
     "pageNumber": 0,
@@ -85,3 +85,4 @@ Request
         }
     ]
 }
+```
