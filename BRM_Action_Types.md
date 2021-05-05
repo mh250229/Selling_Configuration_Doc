@@ -60,7 +60,7 @@ Response Status OK
 }
 ```
 
-## Add Approval Required
+## Add Approval Required Action
 
 Used to add an Approval Required Action Type to a BRM or Age Restriction.
 
@@ -87,7 +87,7 @@ Response Status OK
 }
 ```
 
-## Add Select Reason
+## Add Select Reason Action
 
 Used to add a Select Reason Action Type to a BRM or Age Restriction.
 
@@ -116,9 +116,9 @@ Response Status OK
 }
 ```
 
-## Add Prompt For Confirmation
+## Add Confirmation Action
 
-Used to add a Prompt For Confirmation Action Type to a BRM or Age Restriction.
+Used to add a Confirmation Action Type to a BRM or Age Restriction.
 
 PUT
 
@@ -140,7 +140,7 @@ Response Status OK
 }
 ```
 
-## Add Input Data Required
+## Add Input Data Required Action
 
 Used to add an Input Data Action Type to a BRM or Age Restriction.
 

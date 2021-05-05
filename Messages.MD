@@ -48,7 +48,7 @@ Response Status OK
 }
 ```
 
-## Retrieve Messages
+## Get Messages
 
 Used to retrieve the messages in the system.
 
