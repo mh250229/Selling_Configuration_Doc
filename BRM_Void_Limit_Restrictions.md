@@ -25,6 +25,7 @@ If the client uses the 'Enforce' flag (instead of inform), the item is not remov
 If the ‘Enforce’ flag is not used, the item is removed and captured in the audit line and the restriction is created.
 The following Action type options are supported by the Void Item BRM:
 
+* Prohibit
 * Approval required
 * Select reason
 * Prompt for confirmation
@@ -33,20 +34,18 @@ The following Action type options are supported by the Void Item BRM:
 
 **HTTP Methods:**
 
-* PUT VoidLimitRules_Put
-* GET VoidLimitRules_Get
-* PUT Put prohibit Actions for Void Limit Restrictions
-* GET Put prohibit Actions for Void Limit Restrictions
+* PUT VoidLimitRules_PUT
+* GET VoidLimitRules_GET
 
-## Void Item Business Rule
+## Add Void Item Business Rule
 
-Create the void item business rule.
+Used to add a void item business rule.
 
 PUT
+
 /emerald/selling-service/c1/selling-configuration/business-rules-settings/void-limits/{ruleId}
 
 ```json
-
 Request
 {
 "maxAllowedAmountperLine": 50.0,
@@ -77,121 +76,45 @@ Response 200 OK
 }
 ```
 
-Add the relevant Action Type.
+## Get Void Item Business Rules
 
-Prerequisite: Create a Message. See Messages.
+Used to retrieve a void item business rule details.
 
-PUT
-/emerald/selling-service/c1/selling-configuration/business-rules-settings/void-limits/{ruleId}/prohibit-action
+GET
 
-```json
-Request
-{
-    "scope": "Request",
-    "actionType": "Prohibit",
-    "MessageId": "Void is Prohibited"
-}
-
-Response 200 OK
-{
-   OK
-}
-```
-
-PUT
-/emerald/selling-service/c1/selling-configuration/business-rules-settings/void-limits/{ruleId}/approval-action
+/emerald/selling-service/c1/selling-configuration/business-rules-settings/void-limits/{ruleId}
 
 ```json
-Request
-{
-    "authorizedRoles": [
-        "Supervisor"
-    ],
-    "scope": "Request",
-    "actionType": "ApprovalAction",
-    "MessageId": "Supervisor Approval Required"
-}
-
 Response 200 OK
 {
-   OK
-}
-```
-
-PUT
-/emerald/selling-service/c1/selling-configuration/business-rules-settings/void-limits/{ruleId}/confirmation-action
-
-```json
-Request
-{
-    "scope": "Request",
-    "actionType": "ConfirmationAction",
-    "MessageId": "Confirmation Required"
-}
-
-Response 200 OK
-{
-   OK
-}
-```
-
-PUT
-/emerald/selling-service/c1/selling-configuration/business-rules-settings/void-limits/{ruleId}/notification-action
-
-```json
-Request
-{
-    "scope": "Request",
-    "actionType": "NotificationAction",
-    "MessageId": "Item cannot be voided"
-}
-
-Response 200 OK
-{
-   OK
-}
-```
-
-PUT
-/emerald/selling-service/c1/selling-configuration/business-rules-settings/void-limits/{ruleId}/input-data-action
-
-```json
-Request
-{
-    "inputLabel": "{{ruleId}}",
-    "inputName": "{{ruleId}}",
-    "inputType": {
-        "inputType": "{{inputType}}"
-    },
-    "scope": "Request",
-    "actionType": "{{actionType}}",
-    "MessageId": "{{messageId}}"
-}
-
-Response 200 OK
-{
-   OK
-}
-```
-
-PUT
-/emerald/selling-service/c1/selling-configuration/business-rules-settings/void-limits/{ruleId}/reason-code-action
-
-```json
-Request
-{
-    "reasonCodeIds": [
-        "11017",
-        "11016",
-        "11015"
-    ],
-    "scope": "Request",
-    "actionType": "ReasonCodeAction",
-    "MessageId": "VoidLimit_SelectReasonCode"
-}
-
-Response 200 OK
-{
-   OK
+    "lastPage": true,
+    "pageNumber": 0,
+    "totalPages": 1,
+    "totalResults": 1,
+    "pageContent": [
+        {
+            "ruleType": "VoidLimitRestrictionData",
+            "ruleId": "{ruleId}",
+            "actionType": null,
+            "conditions": {
+                "locationCondition": {
+                    "includedLocations": [
+                        {
+                            "enterpriseUnitId": "00000000000000000000000000035295"
+                        }
+                    ]
+                },
+                "productCondition": {
+                    "includedProducts": [
+                        {
+                            "value": "{{includedItemId}}"
+                        }
+                    ]
+                },
+                "customerOrderCondition": {}
+            },
+            "tag": "selling"
+        }
+    ]
 }
 ```
