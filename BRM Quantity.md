@@ -40,8 +40,8 @@ The BRM supports the following configuration:
   
 The Quantitative Limit BRM is setup as follows:
 
-* Rule Id
-* Rule type - "Quantity"
+* Rule Id - The BRM name
+* Rule Type - QuantityRestrictionData
 * Applied on :item/cart
 * Action type
 * Message header
@@ -155,7 +155,7 @@ Request
       ]
     }
   },
-  "tag": "{{contextType}}"
+  "tag": "Selling"
 }
 
 Response 200 OK
@@ -166,7 +166,9 @@ Response 200 OK
 
 ## Get Quantity Business Rules
 
-Used to retrieve Quantity business rule details.
+Used to retrieve Quantity business rules.
+
+The following example shows two Quantity BRMs set up in the system.
 
 GET
 
@@ -303,7 +305,7 @@ Response 200 OK
                     ]
                 }
             },
-            "tag": "{{contextType}}"
+            "tag": "Selling"
         }
     ]
 }

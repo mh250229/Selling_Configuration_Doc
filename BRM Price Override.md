@@ -6,8 +6,8 @@ The BRM is triggered when the product price is overridden, and the new price exc
 
 The BRM is set up as follows:
 
-* Rule Id
-* Rule Type – PriceOverride
+* Rule Id - The BRM name
+* Rule Type – PriceOverrideRestrictionData
 * Applied on -Item
 * Max Discount (percent)
 * Action Type

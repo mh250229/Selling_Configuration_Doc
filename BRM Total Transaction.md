@@ -4,10 +4,12 @@ The Cart API supports the Total Transaction BRM.
 
 The BRM is set up as follows:
 
-* Rule Id - Total Transaction
-* Rule Type -TransactionTotal
+* Rule Id - The BRM name
+* Rule Type - TotalTransactionRestrictionData
 * Applied on - Transaction
 * Action Type
+
+The transaction limit amount are configured in the CustomerOrderCondition element.
 
 If the restriction is not solved when the Cart is moved to Finalize Status, an exception is returned.
 

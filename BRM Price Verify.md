@@ -6,10 +6,10 @@ The BRM is triggered when the product price is verifed and the item price is dif
 
 The BRM is set up as follows:
 
-* Rule Id -
-* Rule Type -
+* Rule Id - The BRM name
+* Rule Type - PriceVerifyRestrictionData
 * Applied on -
-* Action Type
+* Action Type -
 
 **HTTP Methods:**
 
@@ -139,94 +139,105 @@ GET
 ```json
 Response 200 OK
 {
-  "conditions": {
-    "locationCondition": {
-      "includedLocations": [
+    "lastPage": true,
+    "pageNumber": 0,
+    "totalPages": 1,
+    "totalResults": 1,
+    "pageContent": [
         {
-          "enterpriseUnitId": "{{nep-enterprise-unit}}"
+            "maxPercentageChange": 0,
+            "maxFixedValueChange": 0,
+            "direction": "Increase",
+            "ruleType": "PriceVerifyRestrictionData",
+            "ruleId": "{ruleId}",
+            "actionType": null,
+            "conditions": {
+                "locationCondition": {
+                    "includedLocations": [
+                        {
+                            "enterpriseUnitId": "00000000000000000000000000035295"
+                        }
+                    ],
+                    "excludedLocations": [
+                        {
+                            "enterpriseUnitId": "string"
+                        }
+                    ]
+                },
+                "retailSegmentCondition": {
+                    "includedRetailSegmentsId": [
+                        "string"
+                    ],
+                    "excludedRetailSegmentsId": [
+                        "string"
+                    ]
+                },
+                "productCondition": {
+                    "transactionType ": "SaleOnly",
+                    "includedProducts": [
+                        {
+                            "type": "string",
+                            "value": "string"
+                        }
+                    ],
+                    "excludedProducts": [
+                        {
+                            "type": "string",
+                            "value": "string"
+                        }
+                    ],
+                    "includedGroups": [
+                        "string"
+                    ],
+                    "excludedGroups": [
+                        "string"
+                    ],
+                    "includedDepartments": [
+                        "string"
+                    ],
+                    "excludedDepartments": [
+                        "string"
+                    ],
+                    "includedCategories": [
+                        "string"
+                    ],
+                    "excludedCategories": [
+                        "string"
+                    ]
+                },
+                "customerOrderCondition": {
+                    "maxAmount": 0,
+                    "maxQuantity": 0,
+                    "containsLoyalty": true
+                },
+                "lineCondition": {
+                    "isReturnLine": true,
+                    "isDepartmentSaleLine": true,
+                    "minLineAmount": 0,
+                    "maxLineAmount": 0
+                },
+                "expressionCondition": {
+                    "expression": "string"
+                },
+                "accountProfileCondition": {
+                    "targetAccountProfileId": "string"
+                },
+                "paymentCondition": {
+                    "entryMethod": "string",
+                    "tenderTypeIds": [
+                        "string"
+                    ]
+                },
+                "couponRuleCondition": {
+                    "seriesIds": [
+                        "string"
+                    ],
+                    "couponTypes": [
+                        "string"
+                    ]
+                }
+            },
+            "tag": "string"
         }
-      ],
-      "excludedLocations": [
-        {
-          "enterpriseUnitId": "string"
-        }
-      ]
-    },
-    "retailSegmentCondition": {
-      "includedRetailSegmentsId": [
-        "string"
-      ],
-      "excludedRetailSegmentsId": [
-        "string"
-      ]
-    },
-    "productCondition": {
-      "transactionType ": "SaleOnly",
-      "includedProducts": [
-        {
-          "type": "string",
-          "value": "string"
-        }
-      ],
-      "excludedProducts": [
-        {
-          "type": "string",
-          "value": "string"
-        }
-      ],
-      "includedGroups": [
-        "string"
-      ],
-      "excludedGroups": [
-        "string"
-      ],
-      "includedDepartments": [
-        "string"
-      ],
-      "excludedDepartments": [
-        "string"
-      ],
-      "includedCategories": [
-        "string"
-      ],
-      "excludedCategories": [
-        "string"
-      ]
-    },
-    "customerOrderCondition": {
-      "maxAmount": 0,
-      "maxQuantity": 0,
-      "containsLoyalty": true
-    },
-    "lineCondition": {
-      "isReturnLine": true,
-      "isDepartmentSaleLine": true,
-      "minLineAmount": 0,
-      "maxLineAmount": 0
-    },
-    "expressionCondition": {
-      "expression": "string"
-    },
-    "accountProfileCondition": {
-      "targetAccountProfileId": "string"
-    },
-    "paymentCondition": {
-      "entryMethod": "string",
-      "tenderTypeIds": [
-        "string"
-      ]
-    },
-    "couponRuleCondition": {
-      "seriesIds": [
-        "string"
-      ],
-      "couponTypes": [
-        "string"
-      ]
-    }
-  },
-  "tag": "string",
-  "maxPercentageChange": 0,
-  "maxFixedValueChange": 0,
-  "direction": "Increase"
+    ]
 }

@@ -11,12 +11,12 @@ Both criteria can be configured together.
 The maximum allowed limit can be any positive value including 0.
 A Void item BRM includes:
 
-* Rule Id
-* Rule type- "VoidLimitBehavior"
-* Applied on :Voideditem
+* Rule Id - The BRM name
+* Rule type- VoidLimitRestrictionData
+* Applied on  - Voideditem
 * Max allowed amount per line
 * Max allowed amount per ticket
-* Action type:
+* Action type
 
   * Restricted audit line id
   * Original line id
