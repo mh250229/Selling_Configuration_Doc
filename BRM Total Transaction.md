@@ -95,4 +95,3 @@ Response 200 OK
     },
     "tag": "selling"
 }
-
