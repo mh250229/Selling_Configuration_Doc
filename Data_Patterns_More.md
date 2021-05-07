@@ -878,3 +878,112 @@ Response
    OK
 }
 ```
+
+## Add a DriverLicense Data Pattern
+
+**HTTP Method:**
+
+PUT
+
+/emerald/selling-configuration/data-pattern-settings/patterns/{dataPatternId}
+
+### Drivers License Data Pattern
+
+```json
+Example 
+
+Request
+{
+  "decodedDataType": "DriverLicense",
+  "encodingVariants": [],
+  "extractors": [],
+  "recognizers": [
+    {
+      "recognizerType": "Regex",
+      "decoderName": null,
+      "recognizerParameters": [
+        {
+          "name": "Pattern",
+          "value": "@ANSI*"
+        }
+      ]
+    }
+  ],
+  "validators": [],
+  "allowedBusinessUnits": []
+}
+Response
+{
+   OK
+}
+```
+
+## Add a Tender Data Pattern
+
+**HTTP Method:**
+
+PUT
+
+/emerald/selling-configuration/data-pattern-settings/patterns/{dataPatternId}
+
+### Add a Bottle Return Data Pattern
+
+```json
+Example 
+
+Request
+{
+  "decodedDataType": "Tender",
+  "encodingVariants": [],
+  "extractors": [
+    {
+      "extractorType": "Simple",
+      "decodedKey": "Code",
+      "decoderName": "Fixed",
+      "extractorParameters": [
+        {
+          "name": "FixedValue",
+          "value": "80"
+        }
+      ]
+    },
+    {
+      "extractorType": "Simple",
+      "decodedKey": "VoucherType",
+      "decoderName": "Fixed",
+      "extractorParameters": [
+        {
+          "name": "FixedValue",
+          "value": "Tomra"
+        }
+      ]
+    }
+  ],
+  "recognizers": [
+    {
+      "recognizerType": "PrefixLength",
+      "decoderName": null,
+      "recognizerParameters": [
+        {
+          "name": "Length",
+          "value": "14"
+        },
+        {
+          "name": "FixedPrefix",
+          "value": "B"
+        }
+      ]
+    }
+  ],
+  "validators": [],
+  "allowedBusinessUnits": [
+    {
+      "enterpriseUnitId": "00000000000000000000000000000000"
+    }
+  ]
+}
+Response
+{
+   OK
+}
+```
