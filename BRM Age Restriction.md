@@ -1,5 +1,5 @@
 
-# BRM Age Restriction With Date Time Restriction
+# BRM Age Restriction
 
 The Cart API supports Customer Age and Date/Time Restrictions.
 
