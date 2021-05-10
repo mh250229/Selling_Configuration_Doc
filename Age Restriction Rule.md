@@ -26,9 +26,9 @@ Customer Age Restrictions are set up as follows:
 
 **HTTP Methods:**
 
-* PUT
-* GET
-* DELETE
+* PUT - Add or update an Age Restriction rule
+* GET - Get a single Age Restriction rule by given Id
+* DELETE - Delete specific Age Restriction rule by given Id
 
 ## Add an Age Restriction Rule
 
