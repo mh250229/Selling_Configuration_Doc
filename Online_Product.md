@@ -22,6 +22,8 @@ The "authorizationExternalIdType" options:
 * Card - indicates that the External Identifier is embedded in the item’s magnetic stripe. The number is read when swiping the item after scanning the main barcode (that holds the Item Code number).
 * External - indicates that the External Identifier is defined by the Online Purchase Group next to each item included in the group. When the Item Code is scanned, the system identifies the External Identifier. Currently not supported.
 
+For Online Item Balance Inquiry, the "isBalanceInquiry" parameter must be true.
+
 **HTTP Methods:**
 
 * PUT - Add or update specific online product behavior by given Id
