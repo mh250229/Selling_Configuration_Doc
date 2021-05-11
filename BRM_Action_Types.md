@@ -17,7 +17,7 @@ The following Action Types are supported:
 * PUT
 * GET
 
-The following examples show adding an Action Type to the Void Limits BRM
+The following examples show adding an Action Type.
 
 ## Add Prohibit Action
 
@@ -25,7 +25,7 @@ Used to add a Prohibit Action Type to a BRM or Age Restriction.
 
 PUT
 
-/emerald/selling-service/c1/selling-configuration/business-rules-settings/void-limits/{ruleId}/prohibit-action
+/emerald/selling-service/c1/selling-configuration/business-rules-settings/void-transactions/{ruleId}/prohibit-action
 
 ```json
 Request
@@ -49,7 +49,7 @@ Used to retrieve Prohibit Action Type details.
 
 GET
 
-/emerald/selling-service/c1/selling-configuration/business-rules-settings/void-limits/{ruleId}/prohibit-action
+/emerald/selling-service/c1/selling-configuration/business-rules-settings/void-transactions/{ruleId}/prohibit-action
 
 ```json
 Response Status OK
