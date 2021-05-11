@@ -25,12 +25,14 @@ If the client uses the 'Enforce' flag (instead of inform), the item is not remov
 If the ‘Enforce’ flag is not used, the item is removed and captured in the audit line and the restriction is created.
 The following Action type options are supported by the Void Item BRM:
 
-* Prohibit
 * Approval required
 * Select reason
 * Prompt for confirmation
 * Input data required
 * Notification
+
+**Note:**
+Void Item restrictions cannot be prohibited.
 
 **HTTP Methods:**
 
