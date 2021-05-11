@@ -5,11 +5,11 @@ The Cart API supports Customer Age and Date/Time Restrictions.
 
 Age Restriction rules are configured in the CCM Office and can be configured for a specific Date and Time or Week Day.
 
-Age and Date/Time Restrictions evaluate the customer’s age when selling products based on the date and time the items are sold. For example, prohibit selling alcoholic drinks to customers under 20 after 12.00 am.
+Age and Date/Time Restrictions evaluate the customer’s age when selling products based on the date and time the items are sold. For example, prohibit selling alcoholic drinks to customers under 18 after 11.00 pm.
 
 DateTime restrictions include a prohibit or an approval action with an appropriate message.
 
-Age verification restrictions include another action with another appropriate message. IBoth types of restrictions can be added on the same rule ID. If the DateTime restriction is not met or approved by the user, the age restriction may be triggered by the system.
+Age verification restrictions include another action with another appropriate message. Both types of restrictions can be added on the same rule ID. If the DateTime restriction is not met or approved by the user, the age restriction may be triggered by the system.
 
 Age and Date/Time Restrictions support the following configuration:
 
@@ -57,6 +57,7 @@ DateTime restrictions are set up as follows:
 ## Add an Age Restriction  with Date Time Restriction
 
 Used to add an Age Restriction with a Date Time restriction.
+The {ruleId} is the name of the Age Restriction Rule.
 
 PUT
 /emerald/selling-service/c1/selling-configuration/business-rules-settings/age-restrictions/{ruleId}
@@ -64,6 +65,7 @@ PUT
 ```json
 
 Request
+
 {
     "conditions": {
         "locationCondition": {
@@ -79,32 +81,42 @@ Request
                     "value": "Carlsberg Beer"
                 }
             ]
-        },
-        "customerOrderCondition": {
-            "maxQuantity": "2"
         }
     },
     "tag": "{{contextType_str}}",
     "dateTimeRestriction": {
+        "condition": {
+            "includedDayOfWeek": [],
+            "excludedDayOfWeek": [],
+           "dates": [
+        {
+          "startDate": "2021-05-11T11:45:56.971Z",
+          "endDate": "2021-07-11T11:45:56.971Z"
+        }
+      ],
+      "times": [
+        {
+          "startTime": "23:00:00",
+          "endTime": "03:00:00"
+        }
+        ]
+        },
         "action": {
-            "approvalAction": {
-                "actionType": "ApprovalAction",
+            "prohibitAction": {
+                "actionType": "prohibit",
                 "MessageId": "AlcoholSaleRestrictedMessage",
-                "scope": "Transaction",
-                "authorizedRoles": [
-                    "Manager", "Supervisor"
-                ]
+                "scope": "Transaction"
             }
         }
     },
     "customerAgeRestriction": {
         "action": {
-            "actionType": "ApprovalAction",
-            "MessageId": "Supervisor Approval Required",
+            "actionType": "approvalAction",
+            "MessageId": "Age18VerificationMessage",
             "scope": "Transaction",
             "minimalCustomerAge": "18",
-            "approveRejectRequired": "True",
-            "birthDateRequired": "True",
+            "approveRejectRequired": "true",
+            "birthDateRequired": "true",
             "rejectReasonCode": [
                 "Under Age",
                 "No ID"
@@ -112,7 +124,6 @@ Request
         }
     }
 }
-
 ```
 
 ```json
@@ -124,72 +135,73 @@ Response 200 OK
 
 ## Get Age Restriction Details
 
-Used to retrieve Age Restriction rule details.
+Used to retrieve an Age Restriction rule and its details.
 
 GET
 
-/emerald/selling-service/c1/selling-configuration/business-rules-settings/age-restrictions
+/emerald/selling-service/c1/selling-configuration//business-rules-settings/age-restrictions/AgeRestriction_DateTime
 
 ```json
 Response 200 OK
 {
-    "lastPage": true,
-    "pageNumber": 0,
-    "totalPages": 1,
-    "totalResults": 1,
-    "pageContent": [
-        {
-            "dateTimeRestriction": {
-                "action": {
-                    "approvalAction": {
-                        "actionType": "ApprovalAction",
-                        "authorizedRoles": [
-                            "Manager",
-                            "Supervisor"
-                        ],
-                        "MessageId": "AlcoholSaleRestrictedMessage",
-                        "scope": "Transaction"
-                    }
+    "dateTimeRestriction": {
+        "condition": {
+            "includedDayOfWeek": [],
+            "excludedDayOfWeek": [],
+            "dates": [
+                {
+                    "startDate": "2021-05-11T11:45:56.971Z",
+                    "endDate": "2021-07-11T11:45:56.971Z"
                 }
-            },
-            "customerAgeRestriction": {
-                "action": {
-                    "actionType": "AgeConfirmationAction",
-                    "minimalCustomerAge": 18,
-                    "approveRejectRequired": true,
-                    "birthDateRequired": true,
-                    "rejectReasonCode": [
-                        "Under Age",
-                        "No ID"
-                    ],
-                    "MessageId": "Supervisor Approval Required",
-                    "scope": "Transaction"
+            ],
+            "times": [
+                {
+                    "startTime": "23:00:00",
+                    "endTime": "03:00:00"
                 }
-            },
-            "ruleType": "AgeRestrictionData",
-            "ruleId": "{ruleId}",
-            "actionType": null,
-            "conditions": {
-                "locationCondition": {
-                    "includedLocations": [
-                        {
-                            "enterpriseUnitId": "00000000000000000000000000035295"
-                        }
-                    ]
-                },
-                "productCondition": {
-                    "includedProducts": [
-                        {
-                            "value": "Carlsberg Beer"
-                        }
-                    ]
-                },
-                "customerOrderCondition": {
-                    "maxQuantity": 2
-                }
-            },
-            "tag": "{{contextType_str}}"
+            ]
+        },
+        "action": {
+            "prohibitAction": {
+                "actionType": "ProhibitAction",
+                "MessageId": "AlcoholSaleRestrictedMessage",
+                "scope": "Transaction"
+            }
         }
-    ]
+    },
+    "customerAgeRestriction": {
+        "action": {
+            "actionType": "AgeConfirmationAction",
+            "minimalCustomerAge": 18,
+            "approveRejectRequired": true,
+            "birthDateRequired": true,
+            "rejectReasonCode": [
+                "Under Age",
+                "No ID"
+            ],
+            "MessageId": "Age18VerificationMessage",
+            "scope": "Transaction"
+        }
+    },
+    "ruleType": "AgeRestrictionData",
+    "ruleId": "AgeRestriction_DateTime",
+    "actionType": null,
+    "conditions": {
+        "locationCondition": {
+            "includedLocations": [
+                {
+                    "enterpriseUnitId": "00000000000000000000000000035295"
+                }
+            ]
+        },
+        "productCondition": {
+            "includedProducts": [
+                {
+                    "value": "Carlsberg Beer"
+                }
+            ]
+        }
+    },
+    "tag": "{{contextType_str}}"
 }
 ```
