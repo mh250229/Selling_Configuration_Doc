@@ -1,4 +1,5 @@
 
+
 # Currency Exchange Rates
 
 Exchange rates define the foreign exchange rate for each tender not defined as the local currency.
