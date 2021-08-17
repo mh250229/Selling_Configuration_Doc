@@ -1,6 +1,11 @@
+
 # Messages
 
 Messages are configured for Business Rules and Age Restrictions.
+A message is an auxiliary resource used for offload handling of multi-language message text from other configurations.
+In case a configuration needs to return a human readable text to the client, then instead of returning the full text, it can return a reference to a Message.
+Messages are composed of a Title and Body and may contain predefined embedded parameterized values.
+
 
 **HTTP Methods:**
 
