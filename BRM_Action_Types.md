@@ -1,6 +1,6 @@
 # Action Types
 
-Action Types define the action performed to handle a Business Rules and Age Restrictions.
+Action Types define the action performed to handle Business Rules and Age Restrictions.
 
 The following Action Types are supported:
 
@@ -43,7 +43,7 @@ Response Status OK
 }
 ```
 
-## Get Prohibit Action
+### Get Prohibit Action
 
 Used to retrieve Prohibit Action Type details.
 
