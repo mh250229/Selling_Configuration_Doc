@@ -1,6 +1,8 @@
 
 # Return Policy
 
+## Return Policy Types
+
 This service allows to return items according to defined policies Non Receipt Returns (NRR), TBR (Transaction Based Returns (TBR), and Return All.
 Emerald is integrated with the Business Service Platform (BSP) to support Central Returns. All retail transactions are retained in a central location in the BSP TDM application, which is accessible by all retailers.
 The Return Policy determines how to handle items returned to the store by customers.
@@ -8,7 +10,7 @@ Return Policies can be managed centrally from head office. The Central Returns s
 
 **Return Policy types include:**
 
-* **Non Receipted** - to define the refund policy details to return an item without a receipt, the Cart API invokes the active NRR Policy, which is applied to return the item. If there is no active NRR Policy for the store, the Return Bin cannot be created, and items cannot be returned.. 
+* **Non Receipted** - to define the refund policy details to return an item without a receipt, the Cart API invokes the active NRR Policy, which is applied to return the item. If there is no active NRR Policy for the store, the Return Bin cannot be created, and items cannot be returned.
 The NRR Policy can also be applied to Items returned within a Sale transaction, i.e. in a transaction in which items are purchased and returned.
 
 * **Transaction Based** - to define refund policy details for all transactions in which items are returned with a receipt. On returning an item, the Cart API invokes the active TBR Policy, which is applied to transactions in which return items are returned based on an original receipt.  Both regular and weight items, as well as linked items and items with amount embedded barcodes can be returned using the TBR Policy. If there is no active TBR Policy for the store, the Return Bin cannot be created. When a Return Bin is created without the TransactionLogID, a "Cannot create a Return Bin. TBR must have TransactionLogID" exception is prompted.
@@ -20,8 +22,6 @@ The NRR Policy can also be applied to Items returned within a Sale transaction, 
 **Note:**
 Only Non Receipted Returns can be done without the BSP.
 
-Once all Return Policies are set up, you can use the following services to retrieve one or all Return Policies, and delete a Return Policy from the system
-
 All Return Policies must be configured with the following mandatory options:
 
 * State - the the state the policy is applied in, e.g., TBR, NRR, BDR, Return All.
@@ -32,7 +32,7 @@ All Return Policies must be configured with the following mandatory options:
 * Receipt Lookup Period - to define the number of days up to which the system goes back in a search for transactions that were performed.
 * Is Best for Guest - indicates if the refund policy favors the customer or the retailer, when the item is returned against a Receipt in which the same item was purchased more than once and sold for different prices. For example, open price items such as magazines.
   
-The Return Policies can be configured with the following optional options:
+All Return Policies can be configured with the following optional options:
 
 * EnterpriseUnitsIds - all the business units to which the Return Policy is applied
 * Reimbursement - to define the paid tender and refund tender details for the Return Policy:
@@ -74,6 +74,7 @@ Example: Add a TBR Return Policy.
 **HTTP Method:**
 
 PUT
+
 /emerald/selling-service/c1/selling-configuration/return-policy-settings/return-policy/{returnPolicyId}
 
 Request
@@ -266,9 +267,6 @@ Response 200 OK
 ```
 
 ## BDR Return Policy
-
-If the cart has a Return Bin Type Bottle Deposit, only items associated to the Bottle Deposit groups in the catalog can be returned.
-A Return Bin from Type - Bottle Deposit can only be created if there is an effective Bottle Deposit Return Policy for the store.
 
 The Out of Box configuration for the Bottle Deposit Return Policy includes the following:
 

@@ -6,19 +6,20 @@ The resource Tender Id is a mandatory parameter when adding tender to a Cart.
 
 The following tender types are supported:
 
-*  Cash
-*  Check
-*  EFT Credit/Debit
-*  Gift Card
+* Cash
+* Check
+* EFT Credit/Debit
+* Gift Card
 
 **HTTP Methods:**
 
-*  PUT - Save or update a Tender
-*  GET -  Get all Tenders
-*  GET -  Get a Single Tender single by Given Tender ID
-*  Delete - Delete Single Tender Rate by Tender ID
+* PUT - Save or update a Tender
+* GET -  Get all Tenders
+* GET -  Get a Single Tender single by Given Tender ID
+* Delete - Delete Single Tender Rate by Tender ID
 
 ## Add Cash Tender
+
 Add a cash tender, define the payment and change options.
 The {tenderId} is the ID of the tender, e.g., 1 or Cash, etc.
 
@@ -157,6 +158,7 @@ Request
   ]
 }
 ```
+
 ```json
 Response
 {
@@ -167,7 +169,6 @@ Response
 ### Change Options
 
 Used to define the change settings for each tender, when issuing change at the POS terminal. A change tender is the method of payment used to give change to the customer. For example, if the customer purchases an item for the value of $350.00 and pays with a Gift Card with the value of $400.00, the cashier can only give the $50.00 change with the specified change tender, e.g., Cash.
-
 
 **HTTP Method:**
 
@@ -206,7 +207,6 @@ Response
    OK
 }
 ```
-
 
 ## Add Check Tender Type
 
@@ -387,9 +387,9 @@ Response
 }
 ```
 
-##  Get Change Options per Tender Type by Tender ID
+## Get Change Options per Tender Type by Tender ID
 
-Used to retrieve the change options defined for a specific Tender ID. 
+Used to retrieve the change options defined for a specific Tender ID.
 The following example is for the Cash Tender. The UpToAmount indicates the maximum amount of change that can be given with Cash.
 
 GET
