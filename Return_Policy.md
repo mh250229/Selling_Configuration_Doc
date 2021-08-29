@@ -22,23 +22,33 @@ The NRR Policy can also be applied to Items returned within a Sale transaction, 
 **Note:**
 Only Non Receipted Returns can be done without the BSP.
 
-All Return Policies must be configured with the following mandatory options:
+**All Return Policies must be configured with the following mandatory options:**
+
 **State** - the the state the policy is applied in, e.g., TBR, NRR, BDR, Return All.
+
 **Name** - the name of the Return Policy
+
 **Start and End Date Times** - defines the date and time during which the Return Policy is active.
+
 **IsSubmitted** - to indicate that the Return Policy was submitted.
+
 **PriceVerificationRequired** - indicates if during the return the price of the item being returned must be verified.
+
 **Receipt Lookup Period** - to define the number of days up to which the system goes back in a search for transactions that were performed.
-Is Best for Guest - indicates if the refund policy favors the customer or the retailer, when the item is returned against a Receipt in which the same item was purchased more than once and sold for different prices. For example, open price items such as magazines.
+
+**Is Best for Guest** - indicates if the refund policy favors the customer or the retailer, when the item is returned against a Receipt in which the same item was purchased more than once and sold for different prices. For example, open price items such as magazines.
   
-All Return Policies can be configured with the following optional options:
+**All Return Policies can be configured with the following optional options:**
+
 **EnterpriseUnitsIds** - all the business units to which the Return Policy is applied
+
 **Reimbursement** - to define refund tenders. Includes the paid tender and refund tender details for the Return Policy:
 
 * The Paid tender defines the tender ID from the original transaction and the option to define the maximum refund amount to the tender, e.g., you can specify that if the paid tender was a Visa, you can refund up to a certain amount to the Visa. The Paid Tender is used for TBRs.
 * The Refund tender defines the tender ID and amounts used to refund money to customer when items are returned in an NRR. You can specify the amount up to which refunds with this tender are allowed.
   
 **Reason configuration** to define the return reason.
+
 **Required Customer details** to define that the customer details, such as name, address, etc., are captured during the return.
 
 **HTTP Methods:**
