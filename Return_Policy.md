@@ -22,35 +22,6 @@ The NRR Policy can also be applied to Items returned within a Sale transaction, 
 **Note:**
 Only Non Receipted Returns can be done without the BSP.
 
-**All Return Policies must be configured with the following mandatory options:**
-
-**State** - the the state the policy is applied in, e.g., TBR, NRR, BDR, Return All.
-
-**Name** - the name of the Return Policy
-
-**Start and End Date Times** - defines the date and time during which the Return Policy is active.
-
-**IsSubmitted** - to indicate that the Return Policy was submitted.
-
-**PriceVerificationRequired** - indicates if during the return the price of the item being returned must be verified.
-
-**Receipt Lookup Period** - to define the number of days up to which the system goes back in a search for transactions that were performed.
-
-**Is Best for Guest** - indicates if the refund policy favors the customer or the retailer, when the item is returned against a Receipt in which the same item was purchased more than once and sold for different prices. For example, open price items such as magazines.
-  
-**All Return Policies can be configured with the following optional options:**
-
-**EnterpriseUnitsIds** - all the business units to which the Return Policy is applied
-
-**Reimbursement** - to define refund tenders. Includes the paid tender and refund tender details for the Return Policy:
-
-* The Paid tender defines the tender ID from the original transaction and the option to define the maximum refund amount to the tender, e.g., you can specify that if the paid tender was a Visa, you can refund up to a certain amount to the Visa. The Paid Tender is used for TBRs.
-* The Refund tender defines the tender ID and amounts used to refund money to customer when items are returned in an NRR. You can specify the amount up to which refunds with this tender are allowed.
-  
-**Reason configuration** to define the return reason.
-
-**Required Customer details** to define that the customer details, such as name, address, etc., are captured during the return.
-
 **HTTP Methods:**
 
 POST - Get the effective return policy for business unit
@@ -104,80 +75,11 @@ Request
   "enterpriseUnitsIds": [
     "00000000000000000000000000035295"
   ],
-   "isBestForGuest": "true",
-  "returnRules": {
-    "expressionRules": [
-      {
-        "name": "NonReceiptedReturnsRestrictedItemsGroup",
-        "sequence": 14450092,
-        "condition": {
-          "includedGroups": [
-            "NonReceiptedReturnsRestrictedItemsGroup"
-          ]
-        },
-        "action": {
-          "allowAction": null,
-          "denyAction": {
-            "actionStrategy": "Prohibit",
-            "messageId": "Prohibit NonReceiptedReturnsRestrictedItemsGroup items"
-          },
-          "forcedExchangeItemAction": null,
-          "forcedExchangeOverrideItemAction": null,
-          "forcedExchangeOverrideThresholdAction": null,
-          "forcedExchangeThresholdAction": null,
-          "managerApprovalAction": null
-        }
-      }
-    ],
-    "thresholdRules": null,
-  },
-  "reimbursement": {
-    "refundByPayments": [
-      {
-        "priority": 1,
-        "paidTenderId": "10",
-        "refundByAmounts": [
-          {
-            "refundTenderId": "10",
-            "upToAmount": null,
-          }
-        ]
-      }
-      {
-        "priority": 2,
-        "paidTenderId": "1",
-        "refundByAmounts": [
-          {
-            "refundTenderId": "1",
-            "upToAmount": 1000.00
-          }
-        ]
-      }
-    ],
-    "roles": [
-      "String"
-    ]
-  },
-  "reasonConfiguration": {
-    "reasonCodePromtingMethod": "PerItem",
-    "reasonAssociations": [
-      {
-        "reasonCodeId": "11008 Damaged",
-        "disposalMethodDescription": [
-          {
-            "culture": "en-US",
-            "value": "Damaged"
-          }
-        ],
-        "productIds": [
-          "String"
-        ],
-        "categoryIds": [
-          "Dairy"
-        ]
-      }
-    ]
-  },
+  "isBestForGuest": true,
+  "returnRules": null,
+  "reimbursement": null,
+  "reasonConfiguration": null,
+  "requiredCustomerDetails": null
 }
 ```
 
@@ -203,10 +105,10 @@ Request
   "state": "NRR",
   "name": "return-policy-NRR",
   "startDateTime": {
-    "nominalValue": "2021-04-24T12:24:51.4415108"
+    "nominalValue": "2021-04-28T18:00:42.970774"
   },
   "endDateTime": {
-    "nominalValue": "2031-04-25T00:00:00"
+    "nominalValue": "2031-04-29T00:00:00"
   },
   "isSubmitted": true,
   "priceVerificationRequired": false,
@@ -214,58 +116,11 @@ Request
   "enterpriseUnitsIds": [
     "00000000000000000000000000035295"
   ],
- "isBestForGuest": "false",
+  "isBestForGuest": false,
   "returnRules": null,
- "thresholdRules": [
-      {
-        "name": "NRR_threshold",
-        "sequence": 60,
-        "minValue": 1.00,
-        "maxValue": 1000.00,
-        "isOffline": null,
-        "action": {}
-      }
-    ],
-
-  "reimbursement": {
-    "refundByAmounts": [
-      {
-        "refundTenderId": "1",
-        "upToAmount": 1000.00
-      }
-    ],
-    "roles": [
-      "String"
-    ]
-  },
- "reasonConfiguration": {
-    "reasonCodePromtingMethod": "PerTransaction",
-    "reasonAssociations": [
-      {
-        "reasonCodeId": "11008 Damaged",
-        "disposalMethodDescription": [
-          {
-            "culture": "en-US",
-            "value": "Damaged"
-          }
-        ],
-        "productIds": [
-          "String"
-        ],
-        "categoryIds": [
-          "Dairy"
-        ]
-      }
-    ]
-  },
-  "requiredCustomerDetails": {
-    "customerDetailsRequired": "true",
-    "firstNameRequired": "true",
-    "lastNameRequired": "true",
-    "addressRequired": "true",
-    "cityRequired ": "true",
-    "provinceRequired": "true",
-    "postalCodeRequired": "true"
+  "reimbursement": null,
+  "reasonConfiguration": null,
+  "requiredCustomerDetails": null
   }
 ```
 
@@ -301,8 +156,7 @@ Request
     "nominalValue": "2021-06-19T16:30:00.2348661"
   },
   "endDateTime": {
-    "nominal
-    Value": "2031-06-20T00:00:00"
+    "nominalValue": "2031-06-20T00:00:00"
   },
   "isSubmitted": true,
   "priceVerificationRequired": false,
@@ -311,36 +165,8 @@ Request
     "00000000000000000000000000035295"
   ],
   "isBestForGuest": true,
-   "returnRules": {
-    "expressionRules": [
-      {
-        "name": "AllowBottleDepositGroupOnly",
-        "sequence": 14450092,
-        "condition": {
-          "includedGroups": [
-            "BottleDepositGroup"
-          ]
-        },
-        "action": {
-          "AllowAction": {
-            "actionStrategy": "Allow",
-            "messageId": "BottleDepositGroups"
-          },
-          "forcedExchangeItemAction": null,
-          "forcedExchangeOverrideItemAction": null,
-          "forcedExchangeOverrideThresholdAction": null,
-          "forcedExchangeThresholdAction": null,
-          "managerApprovalAction": null
-        }
-      }
-    ],
-   "reimbursement": {
-    "refundByAmounts": [
-      {
-        "refundTenderId": "1",
-        "upToAmount": 1000.00
-      }
-    ],
+  "returnRules": null,
+  "reimbursement": null,
   "reasonConfiguration": null,
   "requiredCustomerDetails": null
 }
