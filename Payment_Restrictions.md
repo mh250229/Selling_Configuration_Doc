@@ -73,7 +73,7 @@ PUT
 
 ```json
 
-Request
+Request: Example of restriction on a product
 {
   "restrictedProducts": {
     "products": [
@@ -90,6 +90,64 @@ Request
       "retailSegment": null,
       "tender": {
         "tenderId": "91",
+        "cardType": null
+      }
+    }
+  ],
+  "returnItemsReduceEligibility": false,
+  "tenderBalanceDisplayMode": "None"
+}
+```
+
+Response
+200 OK
+
+```json
+
+Request: Example of restriction on a category
+{
+  "restrictedProducts": {
+    "categories": [
+      "Diary"
+    ]
+  },
+  "eligibilityPolicyRelation": "ProhibitTenderFor",
+  "allowReverseEligibility": false,
+  "restrictedFor": [
+    {
+      "enterpriseUnitId": null,
+      "retailSegment": null,
+      "tender": {
+        "tenderId": "92",
+        "cardType": null
+      }
+    }
+  ],
+  "returnItemsReduceEligibility": false,
+  "tenderBalanceDisplayMode": "None"
+}
+```
+
+Response
+200 OK
+
+```json
+
+Request: Example of restriction on an item group
+{
+  "restrictedProducts": {
+    "groups": [
+      "milk drinks"
+    ]
+  },
+  "eligibilityPolicyRelation": "ProhibitTenderFor",
+  "allowReverseEligibility": false,
+  "restrictedFor": [
+    {
+      "enterpriseUnitId": null,
+      "retailSegment": null,
+      "tender": {
+        "tenderId": "93",
         "cardType": null
       }
     }
