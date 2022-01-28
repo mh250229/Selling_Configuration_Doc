@@ -129,8 +129,8 @@ Request
     }
   ],
   "isIncluded": false,
-  "startDateTime": "2021-05-06T15:02:30.508Z",
-  "endDateTime": "2022-05-06T15:02:30.508Z",
+  "startDateTime": "2021-11-10T14:29:23.8509277",
+  "endDateTime": "null",
   "rateCondition": {
     "zoneId": "string",
     "products": [
@@ -202,8 +202,8 @@ Request
     }
   ],
   "isIncluded": false,
-  "startDateTime": "2021-05-06T15:02:30.508Z",
-  "endDateTime": "2022-05-06T15:02:30.508Z",
+  "startDateTime": "2021-11-10T14:29:23.8509277",
+  "endDateTime": "null",
   "rateCondition": {
     "zoneId": "string",
     "products": [
