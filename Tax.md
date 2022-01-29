@@ -1,5 +1,5 @@
 
-## Tax Configuration
+# Taxes
 
 Taxes are applied to items when the item is added to the cart. More than one tax can be applied.
 When a tax is applied, the item tax, transaction tax, and transaction totals are calculated correctly and returned in the response from the Cart API.
@@ -37,6 +37,8 @@ Request
 }
 ```
 
+Response OK.
+
 ### Get Tax Authorities
 
 Used to retrieve Tax Authorities details.
@@ -45,8 +47,9 @@ GET
 
 /emerald/selling-service/c1/selling-configuration/tax-settings/authorities/effective-authorities
 
+Response
+
 ```json
-Response Status OK
 {
     "authorityId": "1",
     "descriptions": [
@@ -58,10 +61,9 @@ Response Status OK
 }
 ```
 
+### Tax Zones
 
-
-
-### Mapping a Tax Zone to a Store
+This example shows how to map a tax zone to a store.
 
 PUT /selling-configuration/tax-settings/zones/{zoneId}
 
@@ -75,12 +77,7 @@ PUT /selling-configuration/tax-settings/zones/{zoneId}
 }
 ```
 
-```json
 Response Status OK
-{
-   OK
-}
-```
 
 ## Tax Rates
 
@@ -115,7 +112,7 @@ PUT
 
 /emerald/selling-service/c1/selling-configuration/tax-settings/rates/{rateId}
 
-The following example shows a request to add a 10 % tax rate.
+**The following example shows a request to add a 10 % tax rate.**
 
 ```json
 Request
@@ -180,17 +177,13 @@ Request
 }
 ```
 
-```json
 Response Status OK
-{
-   OK
-}
-```
 
-The following example shows a request to add a 5 % tax rate.
+**The following example shows a request to add a 5 % tax rate.**
+
+Request
 
 ```json
-Request
 
 {
   "taxAuthority": "USA",
@@ -253,15 +246,10 @@ Request
 }
 ```
 
-```json
 Response Status OK
-{
-   OK
-}
-```
-
 
 ### Adding a Tax Rate to the Authority and Zone
+
 PUT
 /selling-configuration/tax-settings/rates/{rateId}
 
@@ -311,9 +299,6 @@ Request
 }
 ```
 
-
-## Get Tax Rates
-
 ### Get a Specific Tax Rate
 
 Used to retrieve Tax Rate details for a specific tax.
@@ -322,8 +307,10 @@ GET
 
 /emerald/selling-service/c1/selling-configuration/tax-settings/rates/{rateId}
 
+Response
+
 ```json
-Response Status OK
+
 {
     "rateId": "Rate1",
     "taxAuthority": "USA",
@@ -386,7 +373,7 @@ Response Status OK
 }
 ```
 
-## Get All Tax Rates
+### Get All Tax Rates
 
 Used to retrieve Tax Rate details of all tax rates.
 
@@ -394,8 +381,9 @@ GET
 
 /emerald/selling-service/c1/selling-configuration/tax-settings/rates
 
+Response
+
 ```json
-Response Status OK
 {
     "lastPage": true,
     "pageNumber": 0,
@@ -588,7 +576,7 @@ Response Status OK
 
 ## Tax Exemptions
 
-Tax Exemptions are issued by Tax Authorities, and are performed at the transaction (Cart) level.
+Tax Exemptions are issued by Tax Authorities and are performed at the transaction (Cart) level.
 
 Tax Exemptions can be reversed.
 
@@ -599,7 +587,7 @@ Tax Exemptions can be reversed.
 * GET
 * DELETE
 
-### Add Tax Rates Exemption
+### Add Tax Exemption - General Example
 
 Used to add Tax Exemptions.
 
@@ -635,54 +623,42 @@ Request
 }
 ```
 
-```json
 Response Status OK
+
+### Add a Tax Exemption - Example for eWIC Tender Tax Exemption
+
+The following example shows how to add a Tax Exemption for the eWIC Tender.
+PUT
+/emerald/selling-service/selling-configuration/v1/tax-settings/exemptions/eWic_TaxExemptionUSA%20
+
+```Json
 {
-   OK
+  "taxAuthority": "USA1",
+  "descriptions": [
+    {
+      "culture": "en-US",
+      "value": "eWic Tender Exemption"
+    }
+  ],
+  "exemptionConditions": {
+    "exemptByTender": [
+      "42"
+    ],
+    "exemptByDiscountAuthority": false,
+    "exemptByAuthority": false,
+    "exemptByTaxRate": null
+  },
+  "exemptionMethod": {
+    "exemptionMethodType": "Tender",
+    "imposition": null,
+    "percentage": null
+  }
 }
 ```
 
-## Get Tax Exemptions
+Response: OK
 
-### Get a Specific Tax Exemption
-
-Used to retrieve Tax Exemption details.
-The {exemptionId} is the Tax exemption name you are retrieving.
-
-GET
-
-/emerald/selling-service/c1/selling-configuration/tax-settings/exemptions/{exemptionId}
-
-```json
-Response Status OK
-<TaxExemptionData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-    <TaxAuthority>USA</TaxAuthority>
-    <Descriptions>
-        <Description>
-            <Culture>String</Culture>
-            <Value>First Exemption</Value>
-        </Description>
-    </Descriptions>
-    <ExemptionConditions>
-        <ExemptByTender>
-            <string>null</string>
-        </ExemptByTender>
-        <ExemptByDiscountAuthority>false</ExemptByDiscountAuthority>
-        <ExemptByAuthority>true</ExemptByAuthority>
-        <ExemptByTaxRate>
-            <string>null</string>
-        </ExemptByTaxRate>
-    </ExemptionConditions>
-    <ExemptionMethod>
-        <ExemptionMethodType>Discount</ExemptionMethodType>
-        <Imposition>null</Imposition>
-        <Percentage>21.15</Percentage>
-    </ExemptionMethod>
-    <ExemptionId>{exemptionId}</ExemptionId>
-</TaxExemptionData>
-```
-
-### Get All Tax Exemptions
+### Get Tax Exemptions
 
 Used to retrieve all the details of all Tax Exemptions.
 
@@ -691,90 +667,37 @@ GET
 /emerald/selling-service/c1/selling-configuration/tax-settings/exemptions
 
 ```json
-Response Status OK
-<TaxExemptionResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-    <LastPage>true</LastPage>
-    <PageNumber>0</PageNumber>
-    <TotalPages>1</TotalPages>
-    <TotalResults>3</TotalResults>
-    <PageContent>
-        <TaxExemptionData>
-            <TaxAuthority>USA</TaxAuthority>
-            <Descriptions>
-                <Description>
-                    <Culture>String</Culture>
-                    <Value>First Exemption</Value>
-                </Description>
-            </Descriptions>
-            <ExemptionConditions>
-                <ExemptByTender>
-                    <string>null</string>
-                </ExemptByTender>
-                <ExemptByDiscountAuthority>false</ExemptByDiscountAuthority>
-                <ExemptByAuthority>true</ExemptByAuthority>
-                <ExemptByTaxRate>
-                    <string>null</string>
-                </ExemptByTaxRate>
-            </ExemptionConditions>
-            <ExemptionMethod>
-                <ExemptionMethodType>Discount</ExemptionMethodType>
-                <Imposition>null</Imposition>
-                <Percentage>21.0</Percentage>
-            </ExemptionMethod>
-            <ExemptionId>1</ExemptionId>
-        </TaxExemptionData>
-        <TaxExemptionData>
-            <TaxAuthority>USA</TaxAuthority>
-            <Descriptions>
-                <Description>
-                    <Culture>String</Culture>
-                    <Value>First Exemption</Value>
-                </Description>
-            </Descriptions>
-            <ExemptionConditions>
-                <ExemptByTender>
-                    <string>null</string>
-                </ExemptByTender>
-                <ExemptByDiscountAuthority>false</ExemptByDiscountAuthority>
-                <ExemptByAuthority>true</ExemptByAuthority>
-                <ExemptByTaxRate>
-                    <string>null</string>
-                </ExemptByTaxRate>
-            </ExemptionConditions>
-            <ExemptionMethod>
-                <ExemptionMethodType>Discount</ExemptionMethodType>
-                <Imposition>null</Imposition>
-                <Percentage>21.15</Percentage>
-            </ExemptionMethod>
-            <ExemptionId>{exemptionId}</ExemptionId>
-        </TaxExemptionData>
-        <TaxExemptionData>
-            <TaxAuthority>USA</TaxAuthority>
-            <Descriptions>
-                <Description>
-                    <Culture>en-US</Culture>
-                    <Value>First Exemption</Value>
-                </Description>
-            </Descriptions>
-            <ExemptionConditions>
-                <ExemptByTender>
-                    <string>null</string>
-                </ExemptByTender>
-                <ExemptByDiscountAuthority>false</ExemptByDiscountAuthority>
-                <ExemptByAuthority>true</ExemptByAuthority>
-                <ExemptByTaxRate>
-                    <string>null</string>
-                </ExemptByTaxRate>
-            </ExemptionConditions>
-            <ExemptionMethod>
-                <ExemptionMethodType>FullExemption</ExemptionMethodType>
-                <Imposition>null</Imposition>
-                <Percentage xsi:nil="true" />
-            </ExemptionMethod>
-            <ExemptionId>FullExemption</ExemptionId>
-        </TaxExemptionData>
-    </PageContent>
-</TaxExemptionResponse>
+{
+    "lastPage": true,
+    "pageNumber": 0,
+    "totalPages": 1,
+    "totalResults": 1,
+    "pageContent": [
+        {
+            "exemptionId": "{exemptionId}",
+            "taxAuthority": "USA1",
+            "descriptions": [
+                {
+                    "culture": "en-US",
+                    "value": "eWic Tender Exemption"
+                }
+            ],
+            "exemptionConditions": {
+                "exemptByTender": [
+                    "42"
+                ],
+                "exemptByDiscountAuthority": false,
+                "exemptByAuthority": false,
+                "exemptByTaxRate": null
+            },
+            "ExemptionMethod": {
+                "exemptionMethodType": "Tender",
+                "imposition": null,
+                "percentage": null
+            }
+        }
+    ]
+}
 ```
 
 ## Tax Parameters
@@ -800,17 +723,11 @@ Request
   "customerExemptionIdRequired": true,
   "exemptionCustomerNameRequired": true
 }
-}
 ```
 
-```json
 Response Status OK
-{
-   OK
-}
-```
 
-## Get All Tax Parameters
+### Get All Tax Parameters
 
 Used to retrieve all the Tax Parameter details.
 
@@ -818,8 +735,9 @@ GET
 
 /emerald/selling-service/c1/selling-configuration/tax-settings/tax-parameters
 
-```json
 Response Status OK
+
+```json
 {
     "lastPage": true,
     "pageNumber": 0,
