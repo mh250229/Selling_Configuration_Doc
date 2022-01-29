@@ -587,47 +587,17 @@ Tax Exemptions can be reversed.
 * GET
 * DELETE
 
-### Add Tax Exemption - General Example
+### Add Tax Exemption
 
 Used to add Tax Exemptions.
+The following example shows how to add a tax exemption for eWIC Tender exemption.
 
 PUT
 
 /emerald/selling-service/c1/selling-configuration/tax-settings/exemptions/{exemptionId}
 
-```json
-Request
-{
-    "taxAuthority": "USA",
-    "descriptions": [
-        {
-            "culture": "en-US",
-            "value": "First Exemption"
-        }
-    ],
-    "exemptionConditions": {
-        "exemptByTender": [
-            "null"
-        ],
-        "exemptByDiscountAuthority": false,
-        "exemptByAuthority": true,
-        "exemptByTaxRate": [
-            "null"
-        ]
-    },
-    "ExemptionMethod": {
-        "exemptionMethodType": "FullExemption",
-        "imposition": "null",
-        "percentage": null
-    }
-}
-```
+{exemptionId} = the exemption name.
 
-Response Status OK
-
-### Add a Tax Exemption - Example for eWIC Tender Tax Exemption
-
-The following example shows how to add a Tax Exemption for the eWIC Tender.
 PUT
 /emerald/selling-service/selling-configuration/v1/tax-settings/exemptions/eWic_TaxExemptionUSA%20
 
