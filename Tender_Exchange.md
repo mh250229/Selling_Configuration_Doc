@@ -3,6 +3,16 @@
 Tender exchange enables customers to purchase a tender and pay for it with another tender, e.g. paying with visa and get cash.  There are various business motivations for Tender Exchange.
 For example: In a Cash withdrawal service, the Customer pays with an EFT card and gets a refund with cash.
 In a Tender correction, the customers pay with Visa for Goods and requests to swap the payment method with a different payment mean.
+A Tender Exchange entity is identified by an ID and a Name.
+Each Tender exchange entity reflects a function/command that can be executed at the POS in no-sale mode. It should be defined in the command menu.
+Tender Exchange configuration is strictly performed in the CCM.
+The definition includes the following attributes:
+
+* Minimum amount for the exchange
+* Maximum amount for the exchange
+* Exchange amount must be 'Multiples of'
+* Refund tenders – a list of tenders from which the cashier will select the refund tender
+* Pays with tenders – a list of tenders from which cashier will select the paying tender
 
 **HTTP Methods:**
 
