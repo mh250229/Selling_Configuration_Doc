@@ -24,6 +24,8 @@ If this option is used, the API provided does not actually check the org, EU, st
 PUT
 /emerald/selling-service/selling-configuration/v1/tender-settings/tender-exchange/{tenderExchangeId}
 
+The {tenderExchangeId} represents the ID number but is not mandatory.
+
 Request
 
 ```json
