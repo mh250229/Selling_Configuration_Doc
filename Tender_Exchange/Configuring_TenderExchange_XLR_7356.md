@@ -35,6 +35,7 @@ PUT
 /emerald/selling-service/selling-configuration/v1/tender-settings/tender-exchange/{tenderExchangeId}
 
 The {tenderExchangeId} represents the ID number but is not mandatory.
+You can replace the {tenderExchangeId} with an ID number, e.g., specify that the CashWithdrawal has ID 2.
 
 Request
 
