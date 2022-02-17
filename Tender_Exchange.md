@@ -126,7 +126,7 @@ Response:
 
 200 OK
 
-## Getting All Tender Exchange Configuration
+## Get All Tender Exchange Configuration
 
 **HTTP Method:**
 
@@ -215,7 +215,7 @@ Response:
 
 ```
 
-## Getting a Tender Exchange Configuration by the Given ID
+## Get a Tender Exchange Configuration by the Given ID
 
 **HTTP Method:**
 
@@ -249,7 +249,7 @@ Response:
 }
 ```
 
-## Getting a Tender Exchange Configuration by the Effective Tender Exchange
+## Get a Tender Exchange Configuration by the Effective Tender Exchange
 
 **HTTP Method:**
 
@@ -277,7 +277,7 @@ Response:
 }
 ```
 
-## Deleting a Tender Exchange Configuration
+## Delete a Tender Exchange Configuration
 
 **HTTP Method:**
 
