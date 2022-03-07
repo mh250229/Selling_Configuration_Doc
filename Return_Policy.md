@@ -621,6 +621,7 @@ Response
 ```
 
 Response 200 OK
+
 ## BDR Return Policy
 
 The Out of Box configuration for the Bottle Deposit Return Policy includes the following:
