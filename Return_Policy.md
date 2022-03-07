@@ -55,37 +55,284 @@ Example: Add a TBR Return Policy.
 
 PUT
 
-/emerald/selling-service/c1/selling-configuration/return-policy-settings/return-policy/{returnPolicyId}
+/emerald/selling-service/c1/selling-configuration/return-policy-settings/return-policy/returnpolicy4
 
 Request
 
 ```json
 {
-  "state": "TBR",
-  "name": "return-policy-TBR",
-  "startDateTime": {
-    "nominalValue": "2021-05-12T12:19:43.3768334"
-  },
-  "endDateTime": {
-    "nominalValue": "2031-05-13T00:00:00"
-  },
-  "isSubmitted": true,
-  "priceVerificationRequired": false,
-  "receiptLookupPeriod": 90,
-  "enterpriseUnitsIds": [
-    "00000000000000000000000000035295"
-  ],
-  "isBestForGuest": true,
-  "returnRules": null,
-  "reimbursement": null,
-  "reasonConfiguration": null,
-  "requiredCustomerDetails": null
+    "state": "TBR",
+    "name": "return-policy-4",
+    "startDateTime": {
+        "nominalValue": "2020-05-14T00:00:00"
+    },
+    "endDateTime": {
+        "nominalValue": "2020-05-14T00:00:00"
+    },
+    "isSubmitted": true,
+    "priceVerificationRequired": false,
+    "receiptLookupPeriod": 2,
+    "enterpriseUnitsIds": [
+        "00000000000000000000000brooklyn1",
+        "enterprise-units-id-2"
+    ],
+    "isBestForGuest": false,
+    "returnRules": {
+        "expressionRules": [
+            {
+                "name": "return-rule-1",
+                "sequence": 1,
+                "condition": {},
+                "action": {
+                    "denyAction": {
+                        "actionStrategy": "deny-action-strategy-1",
+                        "messageId": "deny-action-message-id-1"
+                    },
+                    "managerApprovalAction": {
+                        "roles": [
+                            "forced-exchange-override-threshold-#1-role-name-1"
+                        ],
+                        "scope": "Request",
+                        "actionStrategy": "manager-approval-action-strategy-1",
+                        "messageId": "manager-approval-message-id-1"
+                    },
+                    "confirmationAction": {
+                        "actionStrategy": "Confirmation-action-strategy-1",
+                        "messageId": "Confirmation-message-id-1"
+                    }
+                }
+            }
+        ],
+        "behaviorRules": [
+            {
+                "name": "Behavior-rule-1",
+                "sequence": 1,
+                "condition": {},
+                "action": {
+                    "denyAction": {
+                        "actionStrategy": "deny-action-strategy-1",
+                        "messageId": "deny-action-message-id-1"
+                    },
+                    "managerApprovalAction": {
+                        "roles": [
+                            "forced-exchange-override-threshold-#1-role-name-1"
+                        ],
+                        "scope": "Request",
+                        "actionStrategy": "manager-approval-action-strategy-1",
+                        "messageId": "manager-approval-message-id-1"
+                    },
+                    "confirmationAction": {
+                        "actionStrategy": "Confirmation-action-strategy-1",
+                        "messageId": "Confirmation-message-id-1"
+                    }
+                },
+                "type": "SWITCH_TENDER"
+            }
+        ],
+        "thresholdRules": [
+            {
+                "name": "return-threshold-rule-1",
+                "sequence": 1,
+                "isOffline": true,
+                "action": {
+                    "denyAction": null,
+                    "managerApprovalAction": null,
+                    "confirmationAction": null
+                }
+            }
+        ]
+    },
+    "reimbursement": {
+        "refundByPayments": [
+            {
+                "priority": 1,
+                "paidTenderId": "refund-by-payment-paid-tender-id-1",
+                "refundByAmounts": [
+                    {
+                        "refundTenderId": "refund-by-payment-refund-tender-id-1",
+                        "upToAmount": 10.0
+                    }
+                ]
+            }
+        ],
+        "refundByAmounts": null
+    },
+    "reasonConfiguration": {
+        "reasonCodePromtingMethod": "PerTransaction",
+        "reasonAssociations": [
+            {
+                "reasonCodeId": "reason-configuration-associations-code-id 1",
+                "disposalMethodDescription": [
+                    {
+                        "culture": "reason-associations-description-Culture-1",
+                        "value": "reason-associations-description-value-1"
+                    }
+                ],
+                "productIds": [
+                    "reason-associations-product-id-1"
+                ],
+                "categoryIds": [
+                    "reason-associations-category-id-1"
+                ]
+            }
+        ]
+    },
+    "requiredCustomerDetails": {
+        "customerDetailsRequired": true,
+        "firstNameRequired": true,
+        "lastNameRequired": true,
+        "addressRequired": true,
+        "cityRequired ": true,
+        "provinceRequired": true,
+        "postalCodeRequired": true
+    }
 }
 ```
 
 ```json
 Response 200 OK
 {
+}
+```
+
+Get a TBR Return Policy.
+
+**HTTP Method:**
+
+GET
+
+/emerald/selling-service/c1/selling-configuration/return-policy-settings/return-policy/returnpolicy4
+
+Response
+
+```json
+{
+    "returnPolicyId": "returnpolicy4",
+    "state": "TBR",
+    "name": "return-policy-4",
+    "startDateTime": {
+        "nominalValue": "2020-05-14T00:00:00"
+    },
+    "endDateTime": {
+        "nominalValue": "2020-05-14T00:00:00"
+    },
+    "isSubmitted": true,
+    "priceVerificationRequired": false,
+    "receiptLookupPeriod": 2,
+    "enterpriseUnitsIds": [
+        "00000000000000000000000brooklyn1",
+        "enterprise-units-id-2"
+    ],
+    "isBestForGuest": false,
+    "returnRules": {
+        "expressionRules": [
+            {
+                "name": "return-rule-1",
+                "sequence": 1,
+                "condition": {},
+                "action": {
+                    "denyAction": {
+                        "actionStrategy": "deny-action-strategy-1",
+                        "messageId": "deny-action-message-id-1"
+                    },
+                    "managerApprovalAction": {
+                        "roles": [
+                            "forced-exchange-override-threshold-#1-role-name-1"
+                        ],
+                        "scope": "Request",
+                        "actionStrategy": "manager-approval-action-strategy-1",
+                        "messageId": "manager-approval-message-id-1"
+                    },
+                    "confirmationAction": {
+                        "actionStrategy": "Confirmation-action-strategy-1",
+                        "messageId": "Confirmation-message-id-1"
+                    }
+                }
+            }
+        ],
+        "behaviorRules": [
+            {
+                "name": "Behavior-rule-1",
+                "sequence": 1,
+                "condition": {},
+                "action": {
+                    "denyAction": {
+                        "actionStrategy": "deny-action-strategy-1",
+                        "messageId": "deny-action-message-id-1"
+                    },
+                    "managerApprovalAction": {
+                        "roles": [
+                            "forced-exchange-override-threshold-#1-role-name-1"
+                        ],
+                        "scope": "Request",
+                        "actionStrategy": "manager-approval-action-strategy-1",
+                        "messageId": "manager-approval-message-id-1"
+                    },
+                    "confirmationAction": {
+                        "actionStrategy": "Confirmation-action-strategy-1",
+                        "messageId": "Confirmation-message-id-1"
+                    }
+                },
+                "type": "SWITCH_TENDER"
+            }
+        ],
+        "thresholdRules": [
+            {
+                "name": "return-threshold-rule-1",
+                "sequence": 1,
+                "isOffline": true,
+                "action": {
+                    "denyAction": null,
+                    "managerApprovalAction": null,
+                    "confirmationAction": null
+                }
+            }
+        ]
+    },
+    "reimbursement": {
+        "refundByPayments": [
+            {
+                "priority": 1,
+                "paidTenderId": "refund-by-payment-paid-tender-id-1",
+                "refundByAmounts": [
+                    {
+                        "refundTenderId": "refund-by-payment-refund-tender-id-1",
+                        "upToAmount": 10.0
+                    }
+                ]
+            }
+        ],
+        "refundByAmounts": null
+    },
+    "reasonConfiguration": {
+        "reasonCodePromtingMethod": "PerTransaction",
+        "reasonAssociations": [
+            {
+                "reasonCodeId": "reason-configuration-associations-code-id 1",
+                "disposalMethodDescription": [
+                    {
+                        "culture": "reason-associations-description-Culture-1",
+                        "value": "reason-associations-description-value-1"
+                    }
+                ],
+                "productIds": [
+                    "reason-associations-product-id-1"
+                ],
+                "categoryIds": [
+                    "reason-associations-category-id-1"
+                ]
+            }
+        ]
+    },
+    "requiredCustomerDetails": {
+        "customerDetailsRequired": true,
+        "firstNameRequired": true,
+        "lastNameRequired": true,
+        "addressRequired": true,
+        "cityRequired ": true,
+        "provinceRequired": true,
+        "postalCodeRequired": true
+    }
 }
 ```
 
@@ -96,40 +343,284 @@ Example: Add an NRR Return Policy.
 **HTTP Method:**
 
 PUT
-/emerald/selling-service/c1/selling-configuration/return-policy-settings/return-policy/{returnPolicyId}
+/emerald/selling-service/c1/selling-configuration/return-policy-settings/return-policy/returnpolicy1
 
 Request
 
 ```json
 {
-  "state": "NRR",
-  "name": "return-policy-NRR",
-  "startDateTime": {
-    "nominalValue": "2021-04-28T18:00:42.970774"
-  },
-  "endDateTime": {
-    "nominalValue": "2031-04-29T00:00:00"
-  },
-  "isSubmitted": true,
-  "priceVerificationRequired": false,
-  "receiptLookupPeriod": 2,
-  "enterpriseUnitsIds": [
-    "00000000000000000000000000035295"
-  ],
-  "isBestForGuest": false,
-  "returnRules": null,
-  "reimbursement": null,
-  "reasonConfiguration": null,
-  "requiredCustomerDetails": null
-  }
-```
-
-```json
-Response 200 OK
-{
+    "state": "NRR",
+    "name": "return-policy-all",
+    "startDateTime": {
+        "nominalValue": "2020-05-14T00:00:00"
+    },
+    "endDateTime": {
+        "nominalValue": "2020-05-14T00:00:00"
+    },
+    "isSubmitted": true,
+    "priceVerificationRequired": false,
+    "receiptLookupPeriod": 2,
+    "enterpriseUnitsIds": [
+        "00000000000000000000000brooklyn1",
+        "enterprise-units-id-2"
+    ],
+    "isBestForGuest": false,
+    "returnRules": {
+        "expressionRules": [
+            {
+                "name": "return-rule-1",
+                "sequence": 1,
+                "condition": {},
+                "action": {
+                    "denyAction": {
+                        "actionStrategy": "deny-action-strategy-1",
+                        "messageId": "deny-action-message-id-1"
+                    },
+                    "managerApprovalAction": {
+                        "roles": [
+                            "forced-exchange-override-threshold-#1-role-name-1"
+                        ],
+                        "scope": "Request",
+                        "actionStrategy": "manager-approval-action-strategy-1",
+                        "messageId": "manager-approval-message-id-1"
+                    },
+                    "confirmationAction": {
+                        "actionStrategy": "Confirmation-action-strategy-1",
+                        "messageId": "Confirmation-message-id-1"
+                    }
+                }
+            }
+        ],
+        "behaviorRules": [
+            {
+                "name": "Behavior-rule-1",
+                "sequence": 1,
+                "condition": {},
+                "action": {
+                    "denyAction": {
+                        "actionStrategy": "deny-action-strategy-1",
+                        "messageId": "deny-action-message-id-1"
+                    },
+                    "managerApprovalAction": {
+                        "roles": [
+                            "forced-exchange-override-threshold-#1-role-name-1"
+                        ],
+                        "scope": "Request",
+                        "actionStrategy": "manager-approval-action-strategy-1",
+                        "messageId": "manager-approval-message-id-1"
+                    },
+                    "confirmationAction": {
+                        "actionStrategy": "Confirmation-action-strategy-1",
+                        "messageId": "Confirmation-message-id-1"
+                    }
+                },
+                "type": "SWITCH_TENDER"
+            }
+        ],
+        "thresholdRules": [
+            {
+                "name": "return-threshold-rule-1",
+                "sequence": 1,
+                "isOffline": true,
+                "action": {
+                    "denyAction": null,
+                    "managerApprovalAction": null,
+                    "confirmationAction": null
+                }
+            }
+        ]
+    },
+    "reimbursement": {
+        "refundByPayments": [
+            {
+                "priority": 1,
+                "paidTenderId": "refund-by-payment-paid-tender-id-1",
+                "refundByAmounts": [
+                    {
+                        "refundTenderId": "refund-by-payment-refund-tender-id-1",
+                        "upToAmount": 10.0
+                    }
+                ]
+            }
+        ],
+        "refundByAmounts": null
+    },
+    "reasonConfiguration": {
+        "reasonCodePromtingMethod": "PerTransaction",
+        "reasonAssociations": [
+            {
+                "reasonCodeId": "reason-configuration-associations-code-id 1",
+                "disposalMethodDescription": [
+                    {
+                        "culture": "reason-associations-description-Culture-1",
+                        "value": "reason-associations-description-value-1"
+                    }
+                ],
+                "productIds": [
+                    "reason-associations-product-id-1"
+                ],
+                "categoryIds": [
+                    "reason-associations-category-id-1"
+                ]
+            }
+        ]
+    },
+    "requiredCustomerDetails": {
+        "customerDetailsRequired": true,
+        "firstNameRequired": true,
+        "lastNameRequired": true,
+        "addressRequired": true,
+        "cityRequired ": true,
+        "provinceRequired": true,
+        "postalCodeRequired": true
+    }
 }
 ```
 
+Response 200 OK
+
+Example: Get an NRR Return Policy.
+
+**HTTP Method:**
+
+GET
+
+/emerald/selling-service/c1/selling-configuration/return-policy-settings/return-policy/returnpolicy1
+
+Response
+
+```json
+{
+    "lastPage": true,
+    "pageNumber": 0,
+    "totalPages": 1,
+    "totalResults": 1,
+    "pageContent": [
+        {
+            "returnPolicyId": "NRR1",
+            "state": "NRR",
+            "name": "return-policy-NRR",
+            "startDateTime": {
+                "nominalValue": "2022-02-15T10:01:20.4735731"
+            },
+            "endDateTime": {
+                "nominalValue": "2032-02-16T00:00:00"
+            },
+            "isSubmitted": true,
+            "priceVerificationRequired": false,
+            "receiptLookupPeriod": 2,
+            "enterpriseUnitsIds": [
+                "00000000000000000000000000035295"
+            ],
+            "isBestForGuest": false,
+            "returnRules": null,
+            "reimbursement": null,
+            "reasonConfiguration": null,
+            "requiredCustomerDetails": null
+        }
+    ]
+}
+```
+
+Example: POST Effective Return Policies.
+
+**HTTP Method:**
+
+POST
+
+/emerald/selling-service/c1/selling-configuration/return-policy-settings/return-policy/effective-return-policies
+
+Request
+
+```json
+{
+    "returnPolicyIds": [
+        "returnpolicy3",
+        "returnpolicy4"
+    ]
+}
+```
+
+Response 200 OK
+
+Example: Get Effective Return Policies
+
+**HTTP Method:**
+
+POST
+
+/emerald/selling-service/c1/selling-configuration/return-policy-settings/return-policy/effective-return-policy?returnPolicyType=1&dateTimeTicks=637809485506473549
+
+Response
+
+```json
+{
+    "state": "NRR",
+    "name": "return-policy-NRR",
+    "startDateTime": {
+        "nominalValue": "2022-02-15T10:01:20.4735731"
+    },
+    "endDateTime": {
+        "nominalValue": "2032-02-16T00:00:00"
+    },
+    "isSubmitted": true,
+    "priceVerificationRequired": false,
+    "receiptLookupPeriod": 2,
+    "enterpriseUnitsIds": [
+        "00000000000000000000000000035295"
+    ],
+    "isBestForGuest": false,
+    "returnRules": null,
+    "reimbursement": null,
+    "reasonConfiguration": null,
+    "requiredCustomerDetails": null
+}
+```
+
+Example: Get All Return Policies.
+
+**HTTP Method:**
+
+GET
+
+/emerald/selling-service/c1/selling-configuration/return-policy-settings/return-policy
+
+Response
+
+```json
+{
+    "lastPage": true,
+    "pageNumber": 0,
+    "totalPages": 1,
+    "totalResults": 1,
+    "pageContent": [
+        {
+            "returnPolicyId": "NRR1",
+            "state": "NRR",
+            "name": "return-policy-NRR",
+            "startDateTime": {
+                "nominalValue": "2022-02-15T10:01:20.4735731"
+            },
+            "endDateTime": {
+                "nominalValue": "2032-02-16T00:00:00"
+            },
+            "isSubmitted": true,
+            "priceVerificationRequired": false,
+            "receiptLookupPeriod": 2,
+            "enterpriseUnitsIds": [
+                "00000000000000000000000000035295"
+            ],
+            "isBestForGuest": false,
+            "returnRules": null,
+            "reimbursement": null,
+            "reasonConfiguration": null,
+            "requiredCustomerDetails": null
+        }
+    ]
+}
+```
+
+Response 200 OK
 ## BDR Return Policy
 
 The Out of Box configuration for the Bottle Deposit Return Policy includes the following:
