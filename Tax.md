@@ -725,3 +725,549 @@ Response Status OK
     ]
 }
 ```
+
+## Compound Tax
+
+Compound Tax is tax calculated on top of other taxes (stacked tax).
+
+For example, if an item is defined with two taxes, the first tax is calculated, and then the second tax rate. The total tax amount is the sum of both taxes. Both percentage and fixed tax rates are supported.
+
+## Configuring a Compound Tax
+
+Used to configure Compound Taxes imposed by the Tax Authority.
+
+Compound tax configuration is not part of the Base Configuration.
+
+The following are examples of Compound Tax Configuration required for the flows in the Selling Services.
+
+### Tax Rate 222 ($3.00 Fixed)
+
+**HTTP Method:**
+
+PUT
+
+/emerald/selling-service/selling-configuration/v1/tax-settings/rates/222
+
+```json
+{
+    "taxAuthority": "USA",
+    "taxType": "Tax",
+    "descriptions": [
+        {
+            "culture": "en-US",
+            "value": "Fixed 3 Dollars"
+        }
+    ],
+    "isIncluded": false,
+    "startDateTime": "2022-02-02T10:12:42.578039",
+    "endDateTime": null,
+    "rateCondition": {
+        "zoneId": null,
+        "products": null,
+        "categories": [
+            {
+                "categoryId": "1-1-2C-002-001-003",
+                "categoryLabel": "Merchandise",
+                "isExclude": false
+            }
+        ],
+        "groups": null,
+        "minimumTaxableAmount": null,
+        "containEatInProducts": null,
+        "includeAccessorialFee": null
+    },
+    "calculationMethod": {
+        "calculationMethodType": "FixedAmount",
+        "leveles": [
+            {
+                "from": 0.0,
+                "to": null,
+                "value": 3,
+                "supportedImposition": {
+                    "impositionId": "1",
+                    "indicator": "A"
+                },
+                "BracketId": null
+            }
+        ]
+    },
+    "dependenceRates": [
+        ""
+    ],
+    "roundingMethod": "Standard",
+    "isCouponReduceTaxationAmount": false,
+    "taxableAmountRoundingStrategyKey": null
+}
+```
+
+Response 200 OK
+
+### Tax Rate 333 (10% Percent)
+
+**HTTP Method:**
+
+PUT
+
+/emerald/selling-service/selling-configuration/v1/tax-settings/rates/333
+
+```json
+{
+    "taxAuthority": "USA",
+    "taxType": "Tax",
+    "descriptions": [
+        {
+            "culture": "en-US",
+            "value": "10% precent"
+        }
+    ],
+    "isIncluded": false,
+    "startDateTime": "2022-02-02T10:12:42.5856133",
+    "endDateTime": null,
+    "rateCondition": {
+        "zoneId": null,
+        "products": null,
+        "categories": [
+            {
+                "categoryId": "1-1-2C-002-001-003",
+                "categoryLabel": "Merchandise",
+                "isExclude": false
+            }
+        ],
+        "groups": null,
+        "minimumTaxableAmount": null,
+        "containEatInProducts": null,
+        "includeAccessorialFee": null
+    },
+    "calculationMethod": {
+        "calculationMethodType": "Percent",
+        "leveles": [
+            {
+                "from": 0.0,
+                "to": null,
+                "value": 10,
+                "supportedImposition": {
+                    "impositionId": "2",
+                    "indicator": "C"
+                },
+                "BracketId": null
+            }
+        ]
+    },
+    "dependenceRates": [
+        "222"
+    ],
+    "roundingMethod": "Standard",
+    "isCouponReduceTaxationAmount": false,
+    "taxableAmountRoundingStrategyKey": null
+}
+```
+
+Response 200 OK
+
+### Tax Rate 444 (5% Percent)
+
+**HTTP Method:**
+
+PUT
+
+/emerald/selling-service/selling-configuration/v1/tax-settings/rates/444
+
+```json
+{
+    "taxAuthority": "USA",
+    "taxType": "Tax",
+    "descriptions": [
+        {
+            "culture": "en-US",
+            "value": "5% precent"
+        }
+    ],
+    "isIncluded": false,
+    "startDateTime": "2022-02-02T10:12:42.5856133",
+    "endDateTime": null,
+    "rateCondition": {
+        "zoneId": null,
+        "products": null,
+        "categories": [
+            {
+                "categoryId": "1-1-2C-002-001-003",
+                "categoryLabel": "Merchandise",
+                "isExclude": false
+            }
+        ],
+        "groups": null,
+        "minimumTaxableAmount": null,
+        "containEatInProducts": null,
+        "includeAccessorialFee": null
+    },
+    "calculationMethod": {
+        "calculationMethodType": "Percent",
+        "leveles": [
+            {
+                "from": 0.0,
+                "to": null,
+                "value": 5,
+                "supportedImposition": {
+                    "impositionId": "3",
+                    "indicator": "C"
+                },
+                "BracketId": null
+            }
+        ]
+    },
+    "dependenceRates": [
+        "333"
+    ],
+    "roundingMethod": "Standard",
+    "isCouponReduceTaxationAmount": false,
+    "taxableAmountRoundingStrategyKey": null
+}
+```
+
+Response 200 OK
+
+## Multi Tiered Tax
+
+Multi-tiered taxes enable Tax Authorities to apply different tax rates according to the item price.
+
+Multi-tiered taxes are composed of several tax tiers, the tax is calculated by adding the taxable amount for all the items lines required for a specific tax rate and utilizing the tiers in ascending order.
+
+Thresholds are defined to specify the maximum amount each tax level is applied to. For example, the first tier rate is applied to the first item added into the cart. If the item price is more than the first tier threshold, the remaining price amount is calculated according to the second tier rate. Taxes are calculated according to each tier until tax is applied to the full item price.
+
+### Configuring a Multi Tiered Tax
+
+Used to configure Multi Tiered Taxes imposed by the Tax Authority.
+
+Multi Tiered tax configuration is not part of the Base Configuration.
+
+The following are examples of Multi Tiered Tax Configuration required for the flows in the Selling Services.
+
+### Multi Tier Tax Rate 1
+
+**HTTP Method:**
+
+PUT
+
+/emerald/selling-service/selling-configuration/v1/tax-settings/rates/Rate1
+
+Request
+
+```json
+{
+  "taxAuthority": "USA",
+  "taxType": "Tax",
+  "descriptions": [
+    {
+      "culture": "en-US",
+      "value": "Multi tier tax1"
+    }
+  ],
+  "isIncluded": false,
+  "startDateTime": "2022-01-03T07:56:30.509776",
+  "endDateTime": null,
+  "rateCondition": {
+    "zoneId": null,
+    "products": null,
+    "categories": [
+      {
+        "categoryId": "Food TH",
+        "categoryLabel": "Merchandise",
+        "isExclude": false
+      }
+    ],
+    "groups": null,
+    "minimumTaxableAmount": null,
+    "containEatInProducts": null,
+    "includeAccessorialFee": null
+  },
+  "calculationMethod": {
+    "calculationMethodType": "MultiLevelTiered",
+    "leveles": [
+      {
+        "from": 0,
+        "to": 2,
+        "value": 8,
+        "supportedImposition": {
+          "impositionId": "R1",
+          "indicator": "R1"
+        },
+        "BracketId": null
+      },
+      {
+        "from": 2,
+        "to": 4,
+        "value": 16,
+        "supportedImposition": {
+          "impositionId": "R1",
+          "indicator": "R1"
+        },
+        "BracketId": null
+      },
+      {
+        "from": 4,
+        "to": 6,
+        "value": 18,
+        "supportedImposition": {
+          "impositionId": "R1",
+          "indicator": "R1"
+        },
+        "BracketId": null
+      },
+      {
+        "from": 6,
+        "to": null,
+        "value": 20,
+        "supportedImposition": {
+          "impositionId": "R1",
+          "indicator": "R1"
+        },
+        "BracketId": null
+      }
+    ]
+  },
+  "dependenceRates": [],
+  "roundingMethod": "Standard",
+  "isCouponReduceTaxationAmount": false,
+  "taxableAmountRoundingStrategyKey": null
+}
+```
+
+Response  200 OK
+
+### Multi Tier Tax Rate 5
+
+**HTTP Method:**
+
+PUT
+
+/emerald/selling-service/selling-configuration/v1/tax-settings/rates/Rate5
+
+Request
+
+```json
+{
+  "taxAuthority": "USA",
+  "taxType": "Tax",
+  "descriptions": [
+    {
+      "culture": "en-US",
+      "value": "Multi tier tax2"
+    }
+  ],
+  "isIncluded": false,
+  "startDateTime": "2022-01-03T07:56:30.5149324",
+  "endDateTime": null,
+  "rateCondition": {
+    "zoneId": null,
+    "products": null,
+    "categories": [
+      {
+        "categoryId": "Candy",
+        "categoryLabel": "Merchandise",
+        "isExclude": false
+      }
+    ],
+    "groups": null,
+    "minimumTaxableAmount": null,
+    "containEatInProducts": null,
+    "includeAccessorialFee": null
+  },
+  "calculationMethod": {
+    "calculationMethodType": "MultiLevelTiered",
+    "leveles": [
+      {
+        "from": 0,
+        "to": 10,
+        "value": 5,
+        "supportedImposition": {
+          "impositionId": "R5",
+          "indicator": "R5"
+        },
+        "BracketId": null
+      },
+      {
+        "from": 10,
+        "to": 50,
+        "value": 10,
+        "supportedImposition": {
+          "impositionId": "R5",
+          "indicator": "R5"
+        },
+        "BracketId": null
+      },
+      {
+        "from": 50,
+        "to": null,
+        "value": 20,
+        "supportedImposition": {
+          "impositionId": "R5",
+          "indicator": "R5"
+        },
+        "BracketId": null
+      }
+    ]
+  },
+  "dependenceRates": [],
+  "roundingMethod": "Standard",
+  "isCouponReduceTaxationAmount": false,
+  "taxableAmountRoundingStrategyKey": null
+}
+```
+
+Response  200  OK
+
+## Top Tier Tax
+
+Top Tier taxes enable Tax Authorities to apply taxes in which one tax rate determined by the item price is applied on the full item price.
+
+The rate is taken from the Tax Tier table based on the item’s price. For example, Tier 1 with a 4.5% tax rate is applied to all items between $0.00 - $100.00. Tier 2 with a 8 % tax rate is applied to all items between $100.01 - $200.00
+
+## Configuring a Top Tier Tax
+
+Used to configure Top Tier Taxes imposed by the Tax Authority.
+
+Top Tier tax configuration is not part of the Base Configuration.
+
+The following are examples of Top Tier Tax Configuration required for the flows in the Selling Services.
+
+### Top Tier Tax Rate 1
+
+**HTTP Method:**
+
+PUT
+
+/emerald/selling-service/selling-configuration/v1/tax-settings/rates/Rate1
+
+```json
+{
+    "taxAuthority": "USA",
+    "taxType": "Tax",
+    "descriptions": [
+        {
+            "culture": "en-US",
+            "value": "Top Tier 1"
+        }
+    ],
+    "isIncluded": false,
+    "startDateTime": "2022-02-02T12:54:47.8518522",
+    "endDateTime": null,
+    "rateCondition": {
+        "zoneId": null,
+        "products": null,
+        "categories": null,
+        "groups": [
+            {
+            "groupid": "100",
+            "isExclude": false
+            }
+            ],
+        "minimumTaxableAmount": null,
+        "containEatInProducts": null,
+        "includeAccessorialFee": null
+    },
+    "calculationMethod": {
+        "calculationMethodType": "TopLevelTiered",
+        "leveles": [
+            {
+                "from": 0.0,
+                "to": 30.0,
+                "value": 5.0,
+                "supportedImposition": {
+                    "impositionId": "L",
+                    "indicator": "L"
+                },
+                "BracketId": null
+            },
+            {
+                "from": 30.0,
+                "to": 100.0,
+                "value": 10.0,
+                "supportedImposition": {
+                    "impositionId": "M",
+                    "indicator": "M"
+                },
+                "BracketId": null
+            },
+            {
+                "from": 100.0,
+                "to": null,
+                "value": 20.0,
+                "supportedImposition": {
+                    "impositionId": "N",
+                    "indicator": "N"
+                },
+                "BracketId": null
+            }
+        ]
+    },
+    "dependenceRates": [],
+    "roundingMethod": "Standard",
+    "isCouponReduceTaxationAmount": false,
+    "taxableAmountRoundingStrategyKey": null
+}
+```
+
+### Top Tier Tax Rate 2
+
+**HTTP Method:**
+
+PUT
+
+/emerald/selling-service/selling-configuration/v1/tax-settings/rates/Rate2
+
+```json
+{
+    "taxAuthority": "USA",
+    "taxType": "Tax",
+    "descriptions": [
+        {
+            "culture": "en-US",
+            "value": "Top Tier 2"
+        }
+    ],
+    "isIncluded": false,
+    "startDateTime": "2022-02-02T12:54:47.8662354",
+    "endDateTime": null,
+    "rateCondition": {
+        "zoneId": null,
+        "products": null,
+                "groups": [
+                    {
+                        "groupid": "GroupForTax2",
+            "isExclude": false
+            }],
+        "minimumTaxableAmount": null,
+        "containEatInProducts": null,
+        "includeAccessorialFee": null
+    },
+    "calculationMethod": {
+        "calculationMethodType": "TopLevelTiered",
+        "leveles": [
+            {
+                "from": 0.0,
+                "to": 20.0,
+                "value": 3.0,
+                "supportedImposition": {
+                    "impositionId": "C",
+                    "indicator": "C"
+                },
+                "BracketId": null
+            },
+            {
+                "from": 20.0,
+                "to": null,
+                "value": 7.0,
+                "supportedImposition": {
+                    "impositionId": "D",
+                    "indicator": "D"
+                },
+                "BracketId": null
+            }
+        ]
+    },
+    "dependenceRates": [],
+    "roundingMethod": "Standard",
+    "isCouponReduceTaxationAmount": false,
+    "taxableAmountRoundingStrategyKey": null
+}
+```
