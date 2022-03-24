@@ -29,6 +29,8 @@ The price is displayed on the receipt according to the price presented in the ca
 
 ## Add/Update Special Price Promotion Descriptions
 
+The request contains a list of promotion types and an array of descriptions for each.
+ 
 **HTTP Method:**
 
 PUT
