@@ -24,15 +24,6 @@ Request
 
 ```json
 {
-  "descriptions": [
-    {
-      "culture": "en-US",
-      "value": "USA"
-    }
-  ]
-}
-```json
-{
     "bracketsData": [
         {
             "from": {
