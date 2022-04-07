@@ -31,7 +31,8 @@ Request
     }
   ]
 }
-```{
+```json
+{
     "bracketsData": [
         {
             "from": {
