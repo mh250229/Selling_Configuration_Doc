@@ -345,5 +345,6 @@ Request
     "modulo": 1,
     "tableRepeatingPatternStartsAtRow": null
 }
+```
 
 Response  200 OK
