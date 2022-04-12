@@ -1206,3 +1206,83 @@ Request
   "tableRepeatingPatternStartsAtRow": null
 }
 ```
+
+### Configuring Tax Brackets 6 (Scenario - Top Tiered Brackets - Several Items and Tax Brackets)
+
+**HTTP Method:**
+
+PUT
+
+/emerald/selling-service/selling-configuration/v1/tax-settings/brackets/Brackets6
+
+Request
+
+```json
+{
+    "taxAuthority": "USA",
+    "taxType": "Tax",
+    "descriptions": [
+        {
+            "culture": "en-US",
+            "value": "BracketsTopTiered"
+        }
+    ],
+    "isIncluded": false,
+    "startDateTime": "2022-02-12T10:20:47.1250704",
+    "endDateTime": null,
+    "rateCondition": {
+        "zoneId": null,
+        "products": null,
+        "categories": [
+            {
+                "categoryId": "Cheese Product Group",
+                "categoryLabel": "Merchandise",
+                "isExclude": false
+            }
+        ],
+        "groups": null,
+        "minimumTaxableAmount": null,
+        "containEatInProducts": null,
+        "includeAccessorialFee": null
+    },
+    "calculationMethod": {
+        "calculationMethodType": "BracketsTopTiered",
+        "leveles": [
+            {
+                "from": 0.0,
+                "to": 5.0,
+                "value": 8.0,
+                "supportedImposition": {
+                    "impositionId": "A",
+                    "indicator": "A"
+                },
+                "BracketId": "Brackets8"
+            },
+            {
+                "from": 5.0,
+                "to": 20.0,
+                "value": 6.0,
+                "supportedImposition": {
+                    "impositionId": "C",
+                    "indicator": "C"
+                },
+                "BracketId": "Brackets6"
+            },
+            {
+                "from": 20.0,
+                "to": 100.0,
+                "value": 8.0,
+                "supportedImposition": {
+                    "impositionId": "E",
+                    "indicator": "E"
+                },
+                "BracketId": "Brackets8"
+            }
+        ]
+    },
+    "dependenceRates": [],
+    "roundingMethod": "Standard",
+    "isCouponReduceTaxationAmount": false,
+    "taxableAmountRoundingStrategyKey": null
+}
+```

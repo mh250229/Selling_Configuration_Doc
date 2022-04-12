@@ -153,3 +153,81 @@ PUT
     "taxableAmountRoundingStrategyKey": null
 }
 ```
+
+### Tax Rate 111
+
+**HTTP Method:**
+
+PUT
+
+/emerald/selling-service/selling-configuration/v1/tax-settings/rates/Rate1
+
+```json
+{
+    "taxAuthority": "USA",
+    "taxType": "Tax",
+    "descriptions": [
+        {
+            "culture": "en-US",
+            "value": "BracketsTopTiered"
+        }
+    ],
+    "isIncluded": false,
+    "startDateTime": "2022-02-14T07:30:16.9170013",
+    "endDateTime": null,
+    "rateCondition": {
+        "zoneId": null,
+        "products": null,
+        "categories": null,
+        "groups": [
+            {
+                "groupId": "GroupCheese",
+                "isExclude": false
+            }
+        ],
+        "minimumTaxableAmount": null,
+        "containEatInProducts": null,
+        "includeAccessorialFee": null
+    },
+    "calculationMethod": {
+        "calculationMethodType": "BracketsTopTiered",
+        "leveles": [
+            {
+                "from": 0.0,
+                "to": 5.0,
+                "value": 8.0,
+                "supportedImposition": {
+                    "impositionId": "A",
+                    "indicator": "A"
+                },
+                "BracketId": "Brackets8"
+            },
+            {
+                "from": 5.0,
+                "to": 20.0,
+                "value": 6.0,
+                "supportedImposition": {
+                    "impositionId": "C",
+                    "indicator": "C"
+                },
+                "BracketId": "Brackets6"
+            },
+            {
+                "from": 20.0,
+                "to": null,
+                "value": 8.0,
+                "supportedImposition": {
+                    "impositionId": "E",
+                    "indicator": "E"
+                },
+                "BracketId": "Brackets8"
+            }
+        ]
+    },
+    "dependenceRates": [],
+    "roundingMethod": "Standard",
+    "isCouponReduceTaxationAmount": false,
+    "taxableAmountRoundingStrategyKey": null
+}
+```
+
