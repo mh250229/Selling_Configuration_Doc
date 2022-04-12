@@ -14,7 +14,7 @@ Multi Tiered tax configuration is not part of the Base Configuration.
 
 The following are examples of Multi Tiered Tax Configuration required for the flows in the Selling Services.
 
-### Tax Rate 1
+## Tax Rate 1
 
 **HTTP Method:**
 
@@ -106,7 +106,7 @@ Request
 
 Response  200 OK
 
-### Tax Rate 5
+## Tax Rate 5
 
 **HTTP Method:**
 

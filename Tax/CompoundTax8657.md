@@ -197,3 +197,89 @@ PUT
 ```
 
 Response 200 OK
+
+## Tax Rate 555 - Multi Tier Compound Tax
+
+**HTTP Method:**
+
+PUT
+
+/emerald/selling-service/selling-configuration/v1/tax-settings/rates/Rate555
+
+Request
+
+```json
+{
+    "taxAuthority": "USA_r",
+    "taxType": "Tax",
+    "descriptions": [
+        {
+            "culture": "en-US",
+            "value": "Multi tier tax1"
+        }
+    ],
+    "isIncluded": false,
+    "startDateTime": "2022-01-23T11:15:21.0368168",
+    "endDateTime": null,
+    "rateCondition": {
+        "zoneId": null,
+        "products": null,
+        "categories": [
+            {
+                "categoryId": "20-1",
+                "categoryLabel": "Tax",
+                "isExclude": false
+            }
+        ],
+        "groups": null,
+        "minimumTaxableAmount": null,
+        "containEatInProducts": null,
+        "includeAccessorialFee": null
+    },
+    "calculationMethod": {
+        "calculationMethodType": "MultiLevelTiered",
+        "leveles": [
+            {
+                "from": 0.0,
+                "to": 5.0,
+                "value": 8.0,
+                "supportedImposition": {
+                    "impositionId": "11",
+                    "indicator": "G"
+                },
+                "BracketId": null
+            },
+            {
+                "from": 5.0,
+                "to": 10.0,
+                "value": 16.0,
+                "supportedImposition": {
+                    "impositionId": "12",
+                    "indicator": "H"
+                },
+                "BracketId": null
+            },
+            {
+                "from": 10.0,
+                "to": null,
+                "value": 20.0,
+                "supportedImposition": {
+                    "impositionId": "13",
+                    "indicator": "I"
+                },
+                "BracketId": null
+            }
+        ]
+    },
+    "dependenceRates": [
+        
+    ],
+    "roundingMethod": "Standard",
+    "isCouponReduceTaxationAmount": false,
+    "taxableAmountRoundingStrategyKey": null
+}
+
+```
+
+Response  200  OK
+
