@@ -645,6 +645,19 @@ Request
 }
 ```
 
+### Configuring Tax Brackets FL 6%
+
+**HTTP Method:**
+
+PUT
+
+/emerald/selling-service/selling-configuration/v1/tax-settings/brackets/FL6.25%
+
+Request
+
+```json
+
+
 ### Configuring Tax Brackets FL 6.25%
 
 **HTTP Method:**
@@ -1207,7 +1220,7 @@ Request
 }
 ```
 
-### Configuring Tax Brackets 6 (Scenario - Top Tiered Brackets - Several Items and Tax Brackets)
+### Configuring Tax Brackets 6
 
 **HTTP Method:**
 
@@ -1284,5 +1297,241 @@ Request
     "roundingMethod": "Standard",
     "isCouponReduceTaxationAmount": false,
     "taxableAmountRoundingStrategyKey": null
+}
+```
+
+### Configuring Tax Brackets 8
+
+**HTTP Method:**
+
+PUT
+
+/emerald/selling-service/selling-configuration/v1/tax-settings/brackets/Brackets8
+
+Request
+
+```json
+
+{
+    "bracketsData": [
+        {
+            "from": {
+                "value": 0.00,
+                "currency": {
+                    "isoCurrencySymbol": "USD",
+                    "leastMonetaryUnit": 0.0
+                }
+            },
+            "to": {
+                "value": 0.09,
+                "currency": {
+                    "isoCurrencySymbol": "USD",
+                    "leastMonetaryUnit": 0.0
+                }
+            },
+            "amount": {
+                "value": 0.0,
+                "currency": {
+                    "isoCurrencySymbol": "USD",
+                    "leastMonetaryUnit": 0.0
+                }
+            }
+        },
+        {
+            "from": {
+                "value": 0.1,
+                "currency": {
+                    "isoCurrencySymbol": "USD",
+                    "leastMonetaryUnit": 0.0
+                }
+            },
+            "to": {
+                "value": 0.12,
+                "currency": {
+                    "isoCurrencySymbol": "USD",
+                    "leastMonetaryUnit": 0.0
+                }
+            },
+            "amount": {
+                "value": 0.01,
+                "currency": {
+                    "isoCurrencySymbol": "USD",
+                    "leastMonetaryUnit": 0.0
+                }
+            }
+        },
+        {
+            "from": {
+                "value": 0.13,
+                "currency": {
+                    "isoCurrencySymbol": "USD",
+                    "leastMonetaryUnit": 0.0
+                }
+            },
+            "to": {
+                "value": 0.25,
+                "currency": {
+                    "isoCurrencySymbol": "USD",
+                    "leastMonetaryUnit": 0.0
+                }
+            },
+            "amount": {
+                "value": 0.02,
+                "currency": {
+                    "isoCurrencySymbol": "USD",
+                    "leastMonetaryUnit": 0.0
+                }
+            }
+        },
+        {
+            "from": {
+                "value": 0.26,
+                "currency": {
+                    "isoCurrencySymbol": "USD",
+                    "leastMonetaryUnit": 0.0
+                }
+            },
+            "to": {
+                "value": 0.37,
+                "currency": {
+                    "isoCurrencySymbol": "USD",
+                    "leastMonetaryUnit": 0.0
+                }
+            },
+            "amount": {
+                "value": 0.03,
+                "currency": {
+                    "isoCurrencySymbol": "USD",
+                    "leastMonetaryUnit": 0.0
+                }
+            }
+        },
+        {
+            "from": {
+                "value": 0.38,
+                "currency": {
+                    "isoCurrencySymbol": "USD",
+                    "leastMonetaryUnit": 0.0
+                }
+            },
+            "to": {
+                "value": 0.50,
+                "currency": {
+                    "isoCurrencySymbol": "USD",
+                    "leastMonetaryUnit": 0.0
+                }
+            },
+            "amount": {
+                "value": 0.04,
+                "currency": {
+                    "isoCurrencySymbol": "USD",
+                    "leastMonetaryUnit": 0.0
+                }
+            }
+        },
+        {
+            "from": {
+                "value": 0.51,
+                "currency": {
+                    "isoCurrencySymbol": "USD",
+                    "leastMonetaryUnit": 0.0
+                }
+            },
+            "to": {
+                "value": 0.62,
+                "currency": {
+                    "isoCurrencySymbol": "USD",
+                    "leastMonetaryUnit": 0.0
+                }
+            },
+            "amount": {
+                "value": 0.05,
+                "currency": {
+                    "isoCurrencySymbol": "USD",
+                    "leastMonetaryUnit": 0.0
+                }
+            }
+        },
+        {
+            "from": {
+                "value": 0.63,
+                "currency": {
+                    "isoCurrencySymbol": "USD",
+                    "leastMonetaryUnit": 0.0
+                }
+            },
+            "to": {
+                "value": 0.75,
+                "currency": {
+                    "isoCurrencySymbol": "USD",
+                    "leastMonetaryUnit": 0.0
+                }
+            },
+            "amount": {
+                "value": 0.06,
+                "currency": {
+                    "isoCurrencySymbol": "USD",
+                    "leastMonetaryUnit": 0.0
+                }
+            }
+        },
+        {
+            "from": {
+                "value": 0.76,
+                "currency": {
+                    "isoCurrencySymbol": "USD",
+                    "leastMonetaryUnit": 0.0
+                }
+            },
+            "to": {
+                "value": 0.87,
+                "currency": {
+                    "isoCurrencySymbol": "USD",
+                    "leastMonetaryUnit": 0.0
+                }
+            },
+            "amount": {
+                "value": 0.07,
+                "currency": {
+                    "isoCurrencySymbol": "USD",
+                    "leastMonetaryUnit": 0.0
+                }
+            }
+        },
+        {
+            "from": {
+                "value": 0.88,
+                "currency": {
+                    "isoCurrencySymbol": "USD",
+                    "leastMonetaryUnit": 0.0
+                }
+            },
+            "to": {
+                "value": 1.09,
+                "currency": {
+                    "isoCurrencySymbol": "USD",
+                    "leastMonetaryUnit": 0.0
+                }
+            },
+            "amount": {
+                "value": 0.08,
+                "currency": {
+                    "isoCurrencySymbol": "USD",
+                    "leastMonetaryUnit": 0.0
+                }
+            }
+        }
+    ],
+    "isoCurrencySymbol": "IsoCurrencySymbol",
+    "id": "Brackets8",
+    "descriptions": [
+        {
+            "culture": "en-US",
+            "value": "Brackets Definition Data Brackets8"
+        }
+    ],
+    "percents": 8.0,
+    "modulo": 1,
+    "tableRepeatingPatternStartsAtRow": null
 }
 ```
