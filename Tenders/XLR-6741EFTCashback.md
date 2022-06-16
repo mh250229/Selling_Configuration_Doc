@@ -25,12 +25,12 @@ Request
 
 ```json
 {
-    "CashbackTenders": [
-        {
-            "tenderId": "1"
-            //"enterpriseUnitId": "{{enterpriseUnitId_str}}"
-        }
-    ]
+  "CashbackTenders": [
+    {
+      "tenderId": "1",
+      "enterpriseUnitId": null
+    }
+  ]
 }
 ```
 
