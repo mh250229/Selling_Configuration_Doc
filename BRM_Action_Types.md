@@ -27,8 +27,9 @@ PUT
 
 /emerald/selling-service/c1/selling-configuration/business-rules-settings/void-transactions/{ruleId}/prohibit-action
 
-```json
 Request
+
+```json
 {
     "scope": "Request",
     "actionType": "Prohibit",
@@ -36,14 +37,9 @@ Request
 }
 ```
 
-```json
-Response Status OK
-{
-   OK
-}
-```
+Response 200 OK
 
-### Get Prohibit Action
+## Get Prohibit Action
 
 Used to retrieve Prohibit Action Type details.
 
@@ -51,8 +47,9 @@ GET
 
 /emerald/selling-service/c1/selling-configuration/business-rules-settings/void-transactions/{ruleId}/prohibit-action
 
+Response
+
 ```json
-Response Status OK
 {
     "actionType": "ProhibitAction",
     "MessageId": "Void is Prohibited",
@@ -68,8 +65,9 @@ PUT
 
 /emerald/selling-service/c1/selling-configuration/business-rules-settings/void-limits/{ruleId}/approval-action
 
-```json
 Request
+
+```json
 {
     "authorizedRoles": [
         "Supervisor"
@@ -80,12 +78,7 @@ Request
 }
 ```
 
-```json
-Response Status OK
-{
-   OK
-}
-```
+Response 200 OK
 
 ## Add Select Reason Action
 
@@ -95,8 +88,9 @@ PUT
 
 /emerald/selling-service/c1/selling-configuration/business-rules-settings/void-limits/{ruleId}/reason-code-action
 
-```json
 Request
+
+```json
 {
     "reasonCodeIds": [
         "11017",
@@ -109,12 +103,7 @@ Request
 }
 ```
 
-```json
-Response Status OK
-{
-   OK
-}
-```
+Response 200 OK
 
 ## Add Confirmation Action
 
@@ -124,8 +113,9 @@ PUT
 
 /emerald/selling-service/c1/selling-configuration/business-rules-settings/void-limits/{ruleId}/confirmation-action
 
-```json
 Request
+
+```json
 {
     "scope": "Request",
     "actionType": "ConfirmationAction",
@@ -133,12 +123,7 @@ Request
 }
 ```
 
-```json
-Response Status OK
-{
-   OK
-}
-```
+Response 200 OK
 
 ## Add Input Data Required Action
 
@@ -148,8 +133,9 @@ PUT
 
 /emerald/selling-service/c1/selling-configuration/business-rules-settings/void-limits/{ruleId}/confirmation-action
 
-```json
 Request
+
+```json
 {
     "inputLabel": "Birthdate",
     "inputName": "AgeRestrictionData",
@@ -162,12 +148,7 @@ Request
 }
 ```
 
-```json
-Response Status OK
-{
-   OK
-}
-```
+Response 200 OK
 
 ## Add Notification
 
@@ -177,8 +158,9 @@ PUT
 
 /emerald/selling-service/c1/selling-configuration/business-rules-settings/void-limits/{ruleId}/notification-action
 
-```json
 Request
+
+```json
 {
     "scope": "Request",
     "actionType": "NotificationAction",
@@ -186,9 +168,4 @@ Request
 }
 ```
 
-```json
-Response Status OK
-{
-   OK
-}
-```
+Response 200 OK
