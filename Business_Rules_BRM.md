@@ -1,21 +1,19 @@
 # BRM (Business Rules Management)
 
-BRMs define rules and restrictions which are linked to messages that are triggered by various behaviors.
-A big chunk of configurations fall under this title and are arranged according to different BRM types.
-Each type is concerned with a different function or situation concerning the Cart.
+BRMs define rules and restrictions which are linked to messages that are triggered by various behaviors. Each type is concerned with a different function or situation concerning the Cart.
 While any configuration may be considered as a kind of business rule, the actual BRM types are mainly around limiting or adding steps to the "happy path" flow of selling.
 
 Each BRM consists of a Behavior, optional Conditions, and an Action.
-+ Behavior -  identifies the business situation or event in the Cart, like adding an item, existence of a Coupon, Cart total reaching a specific threshold etc.
-+ Conditions - refine and restrict the Behavior scope, for example, on adding a specific item Id.
-+ Action - what should be done when a situation and conditions are met. For example, require manager approval. See BRM Action Types.
+
+* Behavior -  identifies the business situation or event in the Cart, like adding an item, existence of a Coupon, Cart total reaching a specific threshold etc.
+* Conditions - refine and restrict the Behavior scope, for example, on adding a specific item Id.
+* Action - what should be done when a situation and conditions are met. For example, require manager approval. See BRM Action Types.
 
 BRM configuration is arranged in a way that allows listing all existing BRMs and their types (BRM Basic Data), and then provides specific endpoints for obtaining an manipulating a specific BRM type.
 
 **Note:**
 BRM and some other configurations reference a "messageId".
 This messageId should reference an existing Message resource, containing the detailed multi-language message text. See Messages.
-
 
 ## BRM Price Override
 
@@ -48,14 +46,15 @@ The Price Override BRM supports the following Action Types:
 
 ### Add a Price Override Business Rule
 
-Used to add a Price Override business rule.
-The {ruleId} is the name of the business rule.
+Used to add a Price Override business rule. The {ruleId} is the name of the business rule.
 
 PUT
+
 /emerald/selling-service/c1/selling-configuration/business-rules-settings/price-overrides/{ruleId}
 
-``` json
 Request
+
+``` json
 {
 "maxAllowedPercentChange": 10,
     "conditions": {
@@ -77,13 +76,9 @@ Request
     },
     "tag": "selling"
 }
-
+```
 
 Response 200 OK
-{
-   OK
-}
-```
 
 ### Get Price Override Business Rules
 
@@ -93,8 +88,9 @@ GET
 
 /emerald/selling-service/c1/selling-configuration/business-rules-settings/price-overrides
 
+Response
+
 ``` json
-Response 200 OK
 {
     "lastPage": true,
     "pageNumber": 0,
@@ -156,8 +152,9 @@ PUT
 
 /emerald/selling-service/c1/selling-configuration/business-rules-settings/price-verifies/{ruleId}
 
-``` json
 Request
+
+``` json
 {
   "conditions": {
     "locationCondition": {
@@ -252,12 +249,7 @@ Request
 }
 ```
 
-``` json
 Response 200 OK
-{
-   OK
-}
-```
 
 ### Get Price Verify Business Rules
 
@@ -267,8 +259,9 @@ GET
 
 /emerald/selling-service/c1/selling-configuration/business-rules-settings/price-verifies
 
+Response
+
 ``` json
-Response 200 OK
 {
     "lastPage": true,
     "pageNumber": 0,
@@ -423,8 +416,9 @@ PUT
 
 /emerald/selling-service/c1/selling-configuration/business-rules-settings/void-limits/{ruleId}
 
-```json
 Request
+
+```json
 {
 "maxAllowedAmountperLine": 50.0,
     "conditions": {
@@ -448,12 +442,7 @@ Request
 }
 ```
 
-```json
 Response 200 OK
-{
-   OK
-}
-```
 
 ### Get Void Item Business Rules
 
@@ -463,8 +452,9 @@ GET
 
 /emerald/selling-service/c1/selling-configuration/business-rules-settings/void-limits/{ruleId}
 
+Response
+
 ```json
-Response 200 OK
 {
     "lastPage": true,
     "pageNumber": 0,
@@ -528,9 +518,9 @@ PUT
 
 /emerald/selling-service/c1/selling-configuration/business-rules-settings/total-transactions/{ruleId}
 
-```json
-
 Request
+
+```json
 {
     "conditions": {
         "locationCondition": {
@@ -555,12 +545,7 @@ Request
 }
 ```
 
-```json
 Response 200 OK
-{
-   OK
-}
-```
 
 ### Get Total Transaction Business Rules
 
@@ -570,8 +555,9 @@ GET
 
 /emerald/selling-service/c1/selling-configuration/business-rules-settings/total-transactions/{ruleId}
 
+Response
+
 ```json
-Response 200 OK
 {
     "ruleType": "TotalTransactionRestrictionData",
     "ruleId": "{ruleId}",
@@ -607,17 +593,4 @@ Used to delete a business rule set up in the system. The {ruleId} is the name of
 
 /emerald/selling-service/c1/selling-configuration/business-rules-settings/rules/{ruleId}
 
-```json
-
-Request
-{
-
-}
-```
-
-```json
-Response
-{
-   OK
-}
-```
+Response 200 OK
