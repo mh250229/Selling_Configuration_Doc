@@ -18,8 +18,9 @@ There can be 2 special prices effective for different promotionpricetype values 
 The promotion description is configurable.
 
 **HTTP Methods:**
-**PUT** – to save or update the promotion descriptions by promotion type mapping configuration
-**GET** – to retrieve relevant promotion descriptions by promotion type Mapping Configuration
+
+* PUT – to save or update the promotion descriptions by promotion type mapping configuration
+* GET – to retrieve relevant promotion descriptions by promotion type Mapping Configuration
 
 When the pricing data for an Item has a promotion of type MEMBER_PRICE/'TEMP_PRICE_REDUCTION, the promotion text is printed on the receipt according to the configuration:
 
@@ -30,16 +31,38 @@ The price is displayed on the receipt according to the price presented in the ca
 ## Add/Update Special Price Promotion Descriptions
 
 The request contains a list of promotion types and an array of descriptions for each.
- 
+
 **HTTP Method:**
 
 PUT
+
 /emerald/selling-service/selling-configuration/v1/promotion-settings/promotion-type-description
 
 Request
 
 ```json
-{"promotionTypeDescriptions":[{"promotionType":"MEMBER_PRICE","descriptions":[{"culture":"en_US","value":"other member description"}]},{"promotionType":"TEMP_PRICE_REDUCTION","descriptions":[{"culture":"en_US","value":"Non Loyalty Discount"}]}]}
+{
+  "promotionTypeDescriptions": [
+    {
+      "promotionType": "MEMBER_PRICE",
+      "descriptions": [
+        {
+          "culture": "en_US",
+          "value": "other member description"
+        }
+      ]
+    },
+    {
+      "promotionType": "TEMP_PRICE_REDUCTION",
+      "descriptions": [
+        {
+          "culture": "en_US",
+          "value": "Non Loyalty Discount"
+        }
+      ]
+    }
+  ]
+}
 ```
 
 Response 200 OK
@@ -49,9 +72,10 @@ Response 200 OK
 **HTTP Method:**
 
 GET
+
 /emerald/selling-service/selling-configuration/v1/promotion-settings/promotion-type-description
 
-Request
+Response
 
 ```json
 {

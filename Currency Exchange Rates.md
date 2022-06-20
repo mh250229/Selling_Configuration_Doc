@@ -1,5 +1,3 @@
-
-
 # Currency Exchange Rates
 
 Exchange rates define the foreign exchange rate for each tender not defined as the local currency.
@@ -19,8 +17,9 @@ PUT
 
 /emerald/selling-service/c1/selling-configuration/tender-settings/currency-exchange-rates/{rateId}
 
-```json
 Request
+
+```json
 {
   "PaymentCurrencySymbol": "USD",
   "PurchaseCurrencySymbol": "EUR",
@@ -29,12 +28,7 @@ Request
 }
 ```
 
-```json
-Response Status OK
-{
-   OK
-}
-```
+Response 200 OK
 
 ## Get Curency Exchange Rates
 
@@ -44,8 +38,9 @@ GET
 
 /emerald/selling-service/c1/selling-configuration/tender-settings/currency-exchange-rates/{rateId}
 
+Response
+
 ```json
-Response Status OK
 {
     "Id": "{rateId}",
     "LastUpdateDate": "2021-05-09T07:49:02.2078363Z",

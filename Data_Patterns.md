@@ -21,7 +21,7 @@ The following barcodes are supported:
 
 The following examples show adding different types of Data Patterns.
 
-## Add Item Data Patterns
+## Item Data Patterns
 
 **HTTP Method:**
 
@@ -29,67 +29,63 @@ PUT
 
 /emerald/selling-configuration/data-pattern-settings/patterns/{dataPatternId}
 
-```json
-Example 
-Define a data pattern to extract a 6 digit item code from a GITIN14 code with specific prefix
+### Define a data pattern to extract a 6 digit item code from a GITIN14 code with specific prefix
 
 Request
-{
-            "decodedDataType": "Item",
-            "encodingVariants": [],
-            "extractors": [
-                {
-                    "extractorType": "Simple",
-                    "decodedKey": "Code",
-                    "decoderName": "PositionLength",
-                    "extractorParameters": [
-                        {
-                            "name": "Position",
-                            "value": "8"
-                        },
-                        {
-                            "name": "Length",
-                            "value": "6"
-                        }
-                    ]
-                }
-            ],
-            "recognizers": [
-                {
-                    "recognizerType": "PrefixLength",
-                    "decoderName": null,
-                    "recognizerParameters": [
-                        {
-                            "name": "FromPrefix",
-                            "value": "450"
-                        },
-                        {
-                            "name": "ToPrefix",
-                            "value": "460"
-                        },
-                        {
-                            "name": "Length",
-                            "value": "14"
-                        }
-                    ]
-                }
-            ],
-            "validators": [],
-            "allowedBusinessUnits": []
-        }
-```
+
 ```json
-Response
 {
-   OK
+  "decodedDataType": "Item",
+  "encodingVariants": [],
+  "extractors": [
+    {
+      "extractorType": "Simple",
+      "decodedKey": "Code",
+      "decoderName": "PositionLength",
+      "extractorParameters": [
+        {
+          "name": "Position",
+          "value": "8"
+        },
+        {
+          "name": "Length",
+          "value": "6"
+        }
+      ]
+    }
+  ],
+  "recognizers": [
+    {
+      "recognizerType": "PrefixLength",
+      "decoderName": null,
+      "recognizerParameters": [
+        {
+          "name": "FromPrefix",
+          "value": "450"
+        },
+        {
+          "name": "ToPrefix",
+          "value": "460"
+        },
+        {
+          "name": "Length",
+          "value": "14"
+        }
+      ]
+    }
+  ],
+  "validators": [],
+  "allowedBusinessUnits": []
 }
 ```
 
+Response 200 OK
+
+### Define a Data Pattern to extract Item Code and External Id from a custom gift card 31 digit barcode.
+
+Request
 
 ```json
-Example 
-Define a Data Pattern to extract Item Code and External Id from a custom gift card 31 digit barcode.
-
 {
     "decodedDataType": "Item",
     "encodingVariants": [],
@@ -145,13 +141,13 @@ Define a Data Pattern to extract Item Code and External Id from a custom gift ca
 }
 ```
 
+Response 200 OK
 
-### EAN13 Data Pattern
-
-```json
-Example 
+### Define an EAN13 Data Pattern
 
 Request
+
+```json
 {
   "decodedDataType": "Item",
   "encodingVariants": [],
@@ -266,18 +262,15 @@ Request
     }
   ]
 }
-Response
-{
-   OK
-}
 ```
 
-### EAN8 Data Pattern
+Response 200 OK
 
-```json
-Example 
+### Define an EAN8 Data Pattern
 
 Request
+
+```json
 {
   "decodedDataType": "Item",
   "encodingVariants": [],
@@ -356,18 +349,15 @@ Request
     }
   ]
 }
-Response
-{
-   OK
-}
 ```
 
-### Amount Embedded UPCA Data Pattern
+Response 200 OK
 
-```json
-Example 
+### Define an Amount Embedded UPCA Data Pattern
 
 Request
+
+```json
 {
   "decodedDataType": "Item",
   "encodingVariants": [],
@@ -488,18 +478,15 @@ Request
     }
   ]
 }
-Response
-{
-   OK
-}
 ```
 
-### Amount Embedded EAN Data Pattern
+Response 200 OK
 
-```json
-Example 
+### Define an Amount Embedded EAN Data Pattern
 
 Request
+
+```json
 {
     "decodedDataType": "Item",
     "description": "Amount_Embedded",
@@ -599,18 +586,15 @@ Request
         }
     ]
 }
-Response
-{
-   OK
-}
 ```
 
-### Pharmacy Item McKessons Data Pattern
+Response 200 OK
 
-```json
-Example 
+### Define a Pharmacy Item McKessons Data Pattern
 
 Request
+
+```json
 {
   "decodedDataType": "Item",
   "encodingVariants": [],
@@ -714,13 +698,11 @@ Request
     }
   ]
 }
-Response
-{
-   OK
-}
 ```
 
-## Add Coupon Data Patterns
+Response 200 OK
+
+## Coupon Data Patterns
 
 **HTTP Method:**
 
@@ -728,12 +710,11 @@ PUT
 
 /emerald/selling-configuration/data-pattern-settings/patterns/{dataPatternId}
 
-### Add UPC5 Coupon Data Pattern
-
-```json
-Example 
+### Define a UPC5 Coupon Data Pattern
 
 Request
+
+```json
 {
   "decodedDataType": "Coupon",
   "encodingVariants": [],
@@ -871,18 +852,15 @@ Request
     }
   ]
 }
-Response
-{
-   OK
-}
 ```
 
-### Add Databar Coupon Data Pattern
+Response 200 OK
 
-```json
-Example 
+### Define a Databar Coupon Data Pattern
 
 Request
+
+```json
 {
   "decodedDataType": "DatabarItem",
   "encodingVariants": [],
@@ -901,13 +879,11 @@ Request
     }
   ]
 }
-Response
-{
-   OK
-}
 ```
 
-## Add Customer Data Patterns
+Response 200 OK
+
+## Customer Data Patterns
 
 **HTTP Method:**
 
@@ -915,12 +891,11 @@ PUT
 
 /emerald/selling-configuration/data-pattern-settings/patterns/{dataPatternId}
 
-### Add Loyalty Customer Data Pattern
-
-```json
-Example 
+### Define a Loyalty Customer Data Pattern
 
 Request
+
+```json
 {
   "decodedDataType": "Customer",
   "encodingVariants": [],
@@ -990,21 +965,17 @@ Request
       "enterpriseUnitId": "00000000000000000000000000000000"
     }
   ]
-}
-Response
-{
-   OK
-}
 ```
 
-## Add Transaction Data Patterns
+Response 200 OK
 
-### Add Transaction Barcode Data Pattern
+## Transaction Data Patterns
 
-```json
-Example 
+### Define a Transaction Data Pattern
 
 Request
+
+```json
 {
   "decodedDataType": "Transaction",
   "encodingVariants": [
@@ -1118,13 +1089,11 @@ Request
     }
   ]
 }
-Response
-{
-   OK
-}
 ```
 
-## Add Gift Receipt Data Patterns
+Response 200 OK
+
+## Gift Receipt Data Patterns
 
 **HTTP Method:**
 
@@ -1132,12 +1101,11 @@ PUT
 
 /emerald/selling-configuration/data-pattern-settings/patterns/{dataPatternId}
 
-### Add a Gift Receipt Data Pattern
+### Define a Gift Receipt Data Pattern
+
+Response
 
 ```json
-Example 
-
-Request
 {
   "decodedDataType": "GiftReceipt",
   "encodingVariants": [
@@ -1339,13 +1307,11 @@ Request
     }
   ]
 }
-Response
-{
-   OK
-}
 ```
 
-## Add Cashier Data Patterns
+Response 200 OK
+
+## Cashier Data Patterns
 
 **HTTP Method:**
 
@@ -1353,12 +1319,11 @@ PUT
 
 /emerald/selling-configuration/data-pattern-settings/patterns/{dataPatternId}
 
-### Add a Cashier Barcode Data Pattern
-
-```json
-Example 
+### Define a Cashier Barcode Data Pattern
 
 Request
+
+```json
 {
   "decodedDataType": "Cashier",
   "encodingVariants": [
@@ -1434,13 +1399,11 @@ Request
     }
   ]
 }
-Response
-{
-   OK
-}
 ```
 
-## Add BlindPickup Data Patterns
+Response 200 OK
+
+## BlindPickup Data Patterns
 
 **HTTP Method:**
 
@@ -1448,12 +1411,11 @@ PUT
 
 /emerald/selling-configuration/data-pattern-settings/patterns/{dataPatternId}
 
-### Add a Blind Pickup Data Pattern
-
-```json
-Example 
+### Define a Blind Pickup Data Pattern
 
 Request
+
+```json
 {
   "decodedDataType": "BlindPickup",
   "encodingVariants": [
@@ -1590,13 +1552,11 @@ Request
     }
   ]
 }
-Response
-{
-   OK
-}
 ```
 
-## Add a DriverLicense Data Pattern
+Response 200 OK
+
+## Driver License Data Pattern
 
 **HTTP Method:**
 
@@ -1604,12 +1564,11 @@ PUT
 
 /emerald/selling-configuration/data-pattern-settings/patterns/{dataPatternId}
 
-### Drivers License Data Pattern
-
-```json
-Example 
+### Define a Driver License Data Pattern
 
 Request
+
+```json
 {
   "decodedDataType": "DriverLicense",
   "encodingVariants": [],
@@ -1629,13 +1588,11 @@ Request
   "validators": [],
   "allowedBusinessUnits": []
 }
-Response
-{
-   OK
-}
 ```
 
-## Add a Tender Data Pattern
+Response 200 OK
+
+## Tender Data Pattern
 
 **HTTP Method:**
 
@@ -1643,12 +1600,11 @@ PUT
 
 /emerald/selling-configuration/data-pattern-settings/patterns/{dataPatternId}
 
-### Add a Bottle Return Data Pattern
-
-```json
-Example 
+### Define a Bottle Return Data Pattern
 
 Request
+
+```json
 {
   "decodedDataType": "Tender",
   "encodingVariants": [],
@@ -1699,24 +1655,15 @@ Request
     }
   ]
 }
-Response
-{
-   OK
-}
 ```
 
+Response 200 OK
 
 ## Get Data Patterns
 
-Search for data patterns by a specific ID, or by the Type of entity the data pattern matches.
+To retrieve data patterns by a specific ID, or by the Type of entity the data pattern matches.
 
-**HTTP Methods:**
-
-* GET
-
-The following examples show finding or searching for Data Patterns.
-
-### Search for Item Data Pattern by Single ID
+### Search for Item Data Pattern by Single ID (EAN13)
 
 **HTTP Method:**
 
@@ -1724,12 +1671,9 @@ GET
 
 /emerald/selling-service/c1/selling-configuration/data-pattern-settings/patterns/{dataPatternId}
 
-```json
-The {dataPatternId} is the name of the Data Pattern defined in the system, for example, EAN13.
-
-/emerald/selling-service/c1/selling-configuration/data-pattern-settings/patterns/EAN13
-
 Response
+
+```json
 {
     "dataPatternId": "EAN13",
     "decodedDataType": "Item",
@@ -1852,18 +1796,19 @@ Response
 
 Search by the type of entity the data pattern matches.
 
-**HTTP Method:**
-
-GET
-/emerald/selling-service/c1/selling-configuration/data-pattern-settings/patterns/effective-patterns
-
-```json
-
 Available values : Item, Tender, Customer, CustomerAltAndPIN, EndOfTrip, Cradle, DatabarItem, DriverLicense, WarmReboot, ReleaseDevice, Coupon, Transaction, GiftReceipt, BlindPickup, OnlineServicesProfile, Group, Cashier, IMEI, OrderServiceTransaction, UserCredentials
 For example:
 /emerald/selling-service/c1/selling-configuration/data-pattern-settings/patterns/DriverLicense
 
+**HTTP Method:**
+
+GET
+
+/emerald/selling-service/c1/selling-configuration/data-pattern-settings/patterns/effective-patterns
+
 Response
+
+```json
 {
     "dataPatternId": "DriverLicense",
     "decodedDataType": "DriverLicense",
@@ -1887,18 +1832,17 @@ Response
 }
 ```
 
-### Retrieve for All Configured Data Patterns
-
-Get all the data patterns configured in the system.
+### Retrieve all the Data Patterns Configured in the System
 
 **HTTP Method:**
 
 GET
+
 /emerald/selling-service/c1/selling-configuration/data-pattern-settings/patterns
 
-```json
-
 Response
+
+```json
 {
     "lastPage": true,
     "pageNumber": 0,
