@@ -267,7 +267,7 @@ Request
     "startDateTime": "2000-01-01T00:00:00",
     "endDateTime": "0001-01-01T00:00:00",
     "rateCondition": {
-        "zoneId": {zone-id},
+        "zoneId":  "Zone1",
         "products": [],
         "categories": [],
         "groups": [{
