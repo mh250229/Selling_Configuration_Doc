@@ -101,7 +101,7 @@ Request
 
 Response 200 OK
 
-## Add a rstriction on a category
+## Add a restriction on a category
 
 **HTTP Method:**
 
