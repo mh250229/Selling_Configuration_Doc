@@ -43,7 +43,7 @@ Request
   "validators": [
     "string"
   ],
-  "checkValidatorName": Name,
+  "checkValidatorName": "Name",
   "currency": "USD",
   "manualEntry": false,
   "isProcessedByEps": false,
