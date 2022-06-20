@@ -23,13 +23,13 @@ The following examples show adding different types of Data Patterns.
 
 ## Item Data Patterns
 
+### Define a data pattern to extract a 6 digit item code from a GITIN14 code with specific prefix
+
 **HTTP Method:**
 
 PUT
 
 /emerald/selling-configuration/data-pattern-settings/patterns/{dataPatternId}
-
-### Define a data pattern to extract a 6 digit item code from a GITIN14 code with specific prefix
 
 Request
 
@@ -81,7 +81,13 @@ Request
 
 Response 200 OK
 
-### Define a Data Pattern to extract Item Code and External Id from a custom gift card 31 digit barcode.
+### Define a Data Pattern to extract Item Code and External Id from a custom gift card 31 digit barcode
+
+**HTTP Method:**
+
+PUT
+
+/emerald/selling-configuration/data-pattern-settings/patterns/{dataPatternId}
 
 Request
 
@@ -144,6 +150,12 @@ Request
 Response 200 OK
 
 ### Define an EAN13 Data Pattern
+
+**HTTP Method:**
+
+PUT
+
+/emerald/selling-configuration/data-pattern-settings/patterns/{dataPatternId}
 
 Request
 
@@ -268,6 +280,12 @@ Response 200 OK
 
 ### Define an EAN8 Data Pattern
 
+**HTTP Method:**
+
+PUT
+
+/emerald/selling-configuration/data-pattern-settings/patterns/{dataPatternId}
+
 Request
 
 ```json
@@ -354,6 +372,12 @@ Request
 Response 200 OK
 
 ### Define an Amount Embedded UPCA Data Pattern
+
+**HTTP Method:**
+
+PUT
+
+/emerald/selling-configuration/data-pattern-settings/patterns/{dataPatternId}
 
 Request
 
@@ -484,6 +508,12 @@ Response 200 OK
 
 ### Define an Amount Embedded EAN Data Pattern
 
+**HTTP Method:**
+
+PUT
+
+/emerald/selling-configuration/data-pattern-settings/patterns/{dataPatternId}
+
 Request
 
 ```json
@@ -591,6 +621,12 @@ Request
 Response 200 OK
 
 ### Define a Pharmacy Item McKessons Data Pattern
+
+**HTTP Method:**
+
+PUT
+
+/emerald/selling-configuration/data-pattern-settings/patterns/{dataPatternId}
 
 Request
 
@@ -704,13 +740,13 @@ Response 200 OK
 
 ## Coupon Data Patterns
 
+### Define a UPC5 Coupon Data Pattern
+
 **HTTP Method:**
 
 PUT
 
 /emerald/selling-configuration/data-pattern-settings/patterns/{dataPatternId}
-
-### Define a UPC5 Coupon Data Pattern
 
 Request
 
@@ -858,6 +894,12 @@ Response 200 OK
 
 ### Define a Databar Coupon Data Pattern
 
+**HTTP Method:**
+
+PUT
+
+/emerald/selling-configuration/data-pattern-settings/patterns/{dataPatternId}
+
 Request
 
 ```json
@@ -885,13 +927,13 @@ Response 200 OK
 
 ## Customer Data Patterns
 
+### Define a Loyalty Customer Data Pattern
+
 **HTTP Method:**
 
 PUT
 
 /emerald/selling-configuration/data-pattern-settings/patterns/{dataPatternId}
-
-### Define a Loyalty Customer Data Pattern
 
 Request
 
@@ -972,6 +1014,12 @@ Response 200 OK
 ## Transaction Data Patterns
 
 ### Define a Transaction Data Pattern
+
+**HTTP Method:**
+
+PUT
+
+/emerald/selling-configuration/data-pattern-settings/patterns/{dataPatternId}
 
 Request
 
@@ -1095,13 +1143,13 @@ Response 200 OK
 
 ## Gift Receipt Data Patterns
 
+### Define a Gift Receipt Data Pattern
+
 **HTTP Method:**
 
 PUT
 
 /emerald/selling-configuration/data-pattern-settings/patterns/{dataPatternId}
-
-### Define a Gift Receipt Data Pattern
 
 Response
 
@@ -1313,13 +1361,13 @@ Response 200 OK
 
 ## Cashier Data Patterns
 
+### Define a Cashier Barcode Data Pattern
+
 **HTTP Method:**
 
 PUT
 
 /emerald/selling-configuration/data-pattern-settings/patterns/{dataPatternId}
-
-### Define a Cashier Barcode Data Pattern
 
 Request
 
@@ -1405,13 +1453,13 @@ Response 200 OK
 
 ## BlindPickup Data Patterns
 
+### Define a Blind Pickup Data Pattern
+
 **HTTP Method:**
 
 PUT
 
 /emerald/selling-configuration/data-pattern-settings/patterns/{dataPatternId}
-
-### Define a Blind Pickup Data Pattern
 
 Request
 
@@ -1558,13 +1606,13 @@ Response 200 OK
 
 ## Driver License Data Pattern
 
+### Define a Driver License Data Pattern
+
 **HTTP Method:**
 
 PUT
 
 /emerald/selling-configuration/data-pattern-settings/patterns/{dataPatternId}
-
-### Define a Driver License Data Pattern
 
 Request
 
@@ -1594,13 +1642,13 @@ Response 200 OK
 
 ## Tender Data Pattern
 
+### Define a Bottle Return Data Pattern
+
 **HTTP Method:**
 
 PUT
 
 /emerald/selling-configuration/data-pattern-settings/patterns/{dataPatternId}
-
-### Define a Bottle Return Data Pattern
 
 Request
 
@@ -1663,7 +1711,7 @@ Response 200 OK
 
 To retrieve data patterns by a specific ID, or by the Type of entity the data pattern matches.
 
-### Search for Item Data Pattern by Single ID (EAN13)
+### Retrieve a Item Data Pattern by Single ID (EAN13)
 
 **HTTP Method:**
 
@@ -1797,7 +1845,9 @@ Response
 Search by the type of entity the data pattern matches.
 
 Available values : Item, Tender, Customer, CustomerAltAndPIN, EndOfTrip, Cradle, DatabarItem, DriverLicense, WarmReboot, ReleaseDevice, Coupon, Transaction, GiftReceipt, BlindPickup, OnlineServicesProfile, Group, Cashier, IMEI, OrderServiceTransaction, UserCredentials
+
 For example:
+
 /emerald/selling-service/c1/selling-configuration/data-pattern-settings/patterns/DriverLicense
 
 **HTTP Method:**
