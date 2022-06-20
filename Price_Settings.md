@@ -30,7 +30,7 @@ Request
 {
   "MsuStrategy": "First"
 }
-
+```
 
 Response 200 OK
 
