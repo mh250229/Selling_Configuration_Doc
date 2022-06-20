@@ -26,11 +26,12 @@ The {tenderId} is the ID of the tender, e.g., 1 or Cash, etc.
 **HTTP Method:**
 
 PUT
+
 /emerald/selling-service/c1/selling-configuration/tender-settings/tender-types/{tenderId}
 
-```json
-
 Request
+
+```json
 {
    "tenderType": "Cash",
   "descriptions": [
@@ -55,16 +56,12 @@ Request
   ],
   "isLoyaltyRequired": false,
   "loyaltySVAccountType": null
-
-}
-
-Response
-{
-   OK
 }
 ```
 
-### Payment Options
+Response 200 OK
+
+## Payment Options
 
 Define Options for Tender Type, per Enterprise Units and Touchpoint Group (Optional).
 Each Tender Type can have a separate sub resource defining options for it per  the Enterprise Unit.
@@ -72,6 +69,7 @@ Each Tender Type can have a separate sub resource defining options for it per  t
 **HTTP Method:**
 
 PUT
+
 /emerald/selling-service/c1/selling-configuration/tender-settings/tender-types/{tenderId}/payment-options
 
 The {tenderId} is the ID of the tender for which you are defining payment options.
@@ -79,8 +77,9 @@ The {tenderId} is the ID of the tender for which you are defining payment option
 
 /emerald/selling-configuration/tender-settings/tender-types/{tenderId}/payment-options
 
-```json
 Request
+
+```json
 {
     "amountEntryOption": [
     {
@@ -159,12 +158,7 @@ Request
 }
 ```
 
-```json
-Response
-{
-   OK
-}
-```
+Response 200 OK
 
 ### Change Options
 
@@ -173,10 +167,12 @@ Used to define the change settings for each tender, when issuing change at the P
 **HTTP Method:**
 
 PUT
+
 /emerald/selling-configuration/tender-settings/tender-types/{tenderId}/change-options
 
-```json
 Request
+
+```json
 {
     "isConsolidateOnChange": false,
   "isAutoVoidDisabled": false,
@@ -201,24 +197,21 @@ Request
   ]
 
 }
-
-Response
-{
-   OK
-}
 ```
+
+Response 200 OK
 
 ## Add Check Tender Type
 
-Used to add check tender types.
-The {tenderId} is the ID of the tender you are defining, e.g., 2 or Cheque, Check, etc
+Used to add check tender types. The {tenderId} is the ID of the tender you are defining, e.g., 2 or Cheque, Check, etc
 
 PUT
 
 /emerald/selling-service/c1/selling-configuration/tender-settings/tender-types/{tenderId}
 
-```json
 Request
+
+```json
 {
   "tenderType": "Check",
   "descriptions": [
@@ -247,12 +240,7 @@ Request
 }
 ```
 
-```json
-Response Status OK
-{
-   OK
-}
-```
+Response 200 OK
 
 ## Add EFT Credit/Debit Tender Type
 
@@ -264,8 +252,9 @@ PUT
 
 /emerald/selling-service/c1/selling-configuration/tender-settings/tender-types/{tenderId}
 
-```json
 Request
+
+```json
 {
   "tenderType": "CreditDebit",
   "descriptions": [
@@ -294,12 +283,7 @@ Request
 }
 ```
 
-```json
-Response Status OK
-{
-   OK
-}
-```
+Response 200 OK
 
 ## Add Gift Card Tender Type
 
@@ -311,8 +295,9 @@ PUT
 
 /emerald/selling-service/c1/selling-configuration/tender-settings/tender-types/{tenderId}
 
-```json
 Request
+
+```json
 {
   "tenderType": "CreditDebit",
   "descriptions": [
@@ -341,12 +326,7 @@ Request
 }
 ```
 
-```json
-Response Status OK
-{
-   OK
-}
-```
+Response 200 OK
 
 ## Get a Specific Tender Type by ID
 
@@ -354,10 +334,12 @@ Used to retrieve a defined tender type by the Tender ID.
 The {tenderId} is the tender you are retrieving.
 
 GET
+
 /emerald/selling-service/c1/selling-configuration/tender-settings/tender-types/{tenderId}
 
-```json
 Response
+
+```json
 {
     "tenderId": "66",
     "tenderType": "CreditDebit",
@@ -393,10 +375,12 @@ Used to retrieve the change options defined for a specific Tender ID.
 The following example is for the Cash Tender. The UpToAmount indicates the maximum amount of change that can be given with Cash.
 
 GET
+
 /emerald/selling-service/c1/selling-configuration/tender-settings/tender-types/{tenderId}/change-options
 
+Response
+
 ```json
-Response Status OK
 {
     "isConsolidateOnChange": true,
     "isAutoVoidDisabled": false,
@@ -420,7 +404,7 @@ Response Status OK
         }
     ]
 }
-   ```
+```
 
 ## Get All Tender Types
 
@@ -430,8 +414,9 @@ GET
 
 /emerald/selling-service/c1/selling-configuration/tender-settings/tender-types
 
+Response
+
 ```json
-Response Status OK
 {
     "lastPage": true,
     "pageNumber": 0,
