@@ -18,8 +18,9 @@ PUT
 
 /emerald/selling-service/c1/selling-configuration/tender-settings/denomination-data/{currency}
 
-```json
 Request
+
+```json
 {
   "denominations": [
     {
@@ -31,12 +32,7 @@ Request
 }
 ```
 
-```json
-Response Status OK
-{
-   OK
-}
-```
+Response 200 OK
 
 ## Get Cash Tender Denominations
 
@@ -49,8 +45,9 @@ GET
 
 /emerald/selling-service/c1/selling-configuration/tender-settings/denomination-data/effective/{currency}
 
+Response
+
 ```json
-Response Status OK
 {
     "currency": "USD",
     "denominations": [

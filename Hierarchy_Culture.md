@@ -16,8 +16,9 @@ PUT
 
 /emerald/selling-service/c1/selling-configuration/hierarchy-culture/culture-settings/{enterpriseUnit}
 
-```json
 Request
+
+```json
 {
     "cultureName": "en-US",
     "isoCurrencySymbol": "USD",
@@ -39,12 +40,7 @@ Request
 }
 ```
 
-```json
-Response Status OK
-{
-   OK
-}
-```
+Response 200 OK
 
 ## Get Hierarchy Cultures
 
@@ -54,10 +50,9 @@ GET
 
 /emerald/selling-service/c1/selling-configuration/hierarchy-culture/culture-settings
 
-The following example shows a response when a request is sent to retrieve the Hierarchy Cultures.
+Response
 
 ```json
-Response
 {
     "lastPage": true,
     "pageNumber": 0,

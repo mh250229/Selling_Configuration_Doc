@@ -7,41 +7,42 @@ Multiple Selling Unit (MSU) is a pricing method common in the US market, which i
 The pricing method defines a price for defined quantity of units (always more than 1) vs. defining a price for a single unit of an item.
 
 Defines how cent rounding works for MSU priced items.
+
 The options are:
 
-* First – Added cent on first item (e.g. 3 for 1$ => 0.34, 0.33, 0.33)
-* Last – Added Cent on last Item (e.g. 3 for 1$ => 0.33, 0.33, 0.34)
-* AccErr005 – Cent is added when accumulated deviation crosses 0.5 cent. (e.g. 3 for 1$ => 0.33, 0.34, 0.33)
+* First Strategy – Adds the cent on first item (e.g. 3 for $1 => 0.34, 0.33, 0.33)
+* Last Strategy – Adds the cent on last item (e.g. 3 for $1 => 0.33, 0.33, 0.34)
+* AccErr005 – the cent is added when accumulated deviation crosses 0.5 cent. (e.g. 3 for 1$ => 0.33, 0.34, 0.33)
+
+### Define the MSU configuration
+
+In this example, the first strategy is configured.
 
 **HTTP Methods:**
 
-  PUT
+PUT
 
 emerald/selling-configuration/price-settings/msu-price-configuration/{enterpriseUnit}
 
-```json
-Example: First Strategy
-The cent is added on the first item (e.g. 3 for 1$ => 0.34, 0.33, 0.33)
-
 Request
+
+```json
 {
   "MsuStrategy": "First"
 }
 
 
-Response
-{
-   OK
-}
-```
+Response 200 OK
+
+### Retrieve the MSU configuration
 
 GET
+
 /emerald/selling-service/c1/selling-configuration/price-settings/msu-price-configuration
 
 Response
 
 ```json
-
 {
     "lastPage": true,
     "pageNumber": 0,
@@ -74,16 +75,12 @@ Indicates a discounted item price when, for example, the item is on promotion (T
 
 /emerald/selling-service/c1/selling-configuration/price-settings/special-price-configuration/{enterpriseUnit}
 
-```json
-
 Request
+
+```json
 {
     "EnableSpecialPrice": "true"
 }
-
-
-Response
-{
-   OK
-}
 ```
+
+Response 200 OK

@@ -1,11 +1,10 @@
 
 # Messages
 
-Messages are configured for Business Rules and Age Restrictions.
-A message is an auxiliary resource used for offload handling of multi-language message text from other configurations.
+Messages are configured for Business Rules and Age Restrictions.A message is an auxiliary resource used for offload handling of multi-language message text from other configurations.
+
 In case a configuration needs to return a human readable text to the client, then instead of returning the full text, it can return a reference to a Message.
 Messages are composed of a Title and Body and may contain predefined embedded parameterized values.
-
 
 **HTTP Methods:**
 
@@ -13,20 +12,19 @@ Messages are composed of a Title and Body and may contain predefined embedded pa
 - DELETE Message_DELETE
 - GET Message_GET
 
-## Add Message
+## Add a Message
 
-Used to add a message in the system.
+The following example shows a request to add a message for a Business Rule. The context type is BRM. 
+
+The request includes the default culture, message header and body.
 
 PUT
 
 /emerald/selling-service/c1/selling-configuration/message-settings/messages/{messageId}
 
-The following example shows a request to add a message for a Business Rule.
-
-The context type is BRM. The request includes the default culture, message header and body.
+Request
 
 ```json
-Request
 {
     "contextType": "BRM",
     "description": "null",
@@ -46,25 +44,17 @@ Request
 }
 ```
 
-```json
-Response Status OK
-{
-   OK
-}
-```
+Response 200 OK
 
 ## Get Messages
-
-Used to retrieve the messages in the system.
 
 GET
 
 /emerald/selling-service/c1/selling-configuration/message-settings/messages
 
-The following example shows a response when a request is sent to retrieve the messages defined in the system.
+Response
 
 ```json
-Response
 {
     "lastPage": true,
     "pageNumber": 0,

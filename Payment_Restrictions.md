@@ -1,4 +1,3 @@
-
 # Payment Restrictions
 
 The Selling Services supports Tender Item Restrictions for vouchers.
@@ -12,13 +11,13 @@ If the tender is restricted to pay only for specific items or items in specific 
 * PUT - Save or update a Card Payment Restriction
 * GET -  Get all Card Payment Restrictions
 * GET -  Get a Single Card Payment Restriction by Given Restriction ID
-* Delete - Delete Single Card Payment Restrictions by Restriction ID
+* DELETE - Delete Single Card Payment Restrictions by Restriction ID
 * GET - Get all Product Payment restrictions
 * GET -  Get a Product Card Payment Restriction by Given Restriction ID
 * PUT - Save or update Product Payment Restrictions
-* Delete - Delete Single Product Payment Restrictions by Restriction ID
+* DELETE - Delete Single Product Payment Restrictions by Restriction ID
 
-## Add a Product Payment Restriction - Prohibit
+## Add a product payment restriction - Prohibit
 
 Add a product payment restriction to prohibit the payment of vouchers on specific products/categories, groups.
 
@@ -27,11 +26,12 @@ The {restrictionId} is the ID of the product payment restriction, e.g., 1 or Pro
 **HTTP Method:**
 
 PUT
+
 /emerald/selling-service/selling-configuration/v1/payment-restriction-settings/product-payment-restrictions/{restrictionId}
 
-```json
-
 Request
+
+```json
 {
   "restrictedProducts": {
     "products": [
@@ -57,10 +57,9 @@ Request
 }
 ```
 
-Response
-200 OK
+Response 200 OK
 
-## Add a Product Payment Restriction - Allow
+## Add a product payment restriction - allow
 
 Add a product payment restriction to allow the payment of vouchers on specific products/categories, groups.
 
@@ -69,11 +68,12 @@ The {restrictionId} is the ID of the product payment restriction, e.g., 1 or Pro
 **HTTP Method:**
 
 PUT
-/emerald/selling-service/selling-configuration/v1/payment-restriction-settings/product-payment-restrictions/{restrictionId}
+
+/emerald/selling-service/selling-configuration/v1/
+
+Request
 
 ```json
-
-Request: Example of restriction on a product
 {
   "restrictedProducts": {
     "products": [
@@ -99,12 +99,19 @@ Request: Example of restriction on a product
 }
 ```
 
-Response
-200 OK
+Response 200 OK
+
+## Add a rstriction on a category
+
+**HTTP Method:**
+
+PUT
+
+/emerald/selling-service/selling-configuration/v1/
+
+Request
 
 ```json
-
-Request: Example of restriction on a category
 {
   "restrictedProducts": {
     "categories": [
@@ -128,12 +135,13 @@ Request: Example of restriction on a category
 }
 ```
 
-Response
-200 OK
+Response 200 OK
+
+## Add a restriction on an item group
+
+Request
 
 ```json
-
-Request: Example of restriction on an item group
 {
   "restrictedProducts": {
     "groups": [
@@ -157,19 +165,18 @@ Request: Example of restriction on an item group
 }
 ```
 
-Response
-200 OK
+Response 200 OK
 
-## Get all Product Payment Restrictions
+## Get all product payment restrictions
 
 **HTTP Method:**
 
 GET
 /emerald/selling-service/selling-configuration/v1/payment-restriction-settings/product-payment-restrictions
 
-```json
-
 Response
+
+```json
 {
     "lastPage": true,
     "pageNumber": 0,
@@ -276,20 +283,17 @@ Response
 }
 ```
 
-## Get a Single Product Payment Restriction
+## Get a single product payment restriction
 
 **HTTP Method:**
 
 GET
+
 /emerald/selling-service/selling-configuration/v1/payment-restriction-settings/product-payment-restrictions/{restrictionId}
 
-For example, retrieve RestrictionId 11:
-
-/emerald/selling-service/selling-configuration/v1/payment-restriction-settings/product-payment-restrictions/11
+Request
 
 ```json
-
-Request
 {
     "restrictionId": "11",
     "restrictedProducts": {
@@ -314,5 +318,4 @@ Request
     "returnItemsReduceEligibility": false,
     "tenderBalanceDisplayMode": "None"
 }
-
 ```

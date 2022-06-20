@@ -13,11 +13,11 @@ Checks and Vouchers can be endorsed on the Front, Back, or both Front and Back. 
 - GET - Get all or a single endorsement configuration by given Id
 - DELETE - Delete specific endorsement configuration by given Id
 
-## Adding endorsement configuration
+## Define Endorsement Configuration
 
 PUT
 
-/emerald/selling-service/selling-configuration/v1/receipt-settings/endorsement/xlr-8568_1
+/emerald/selling-service/selling-configuration/v1/receipt-settings/endorsement/{Id}
 
 Request
 

@@ -1,4 +1,3 @@
-
 # Restrictions for Age and Date/Time
 
 Age Restricted policies comprise of a set of restrictions based on the customer's age and date and time items are sold. There is no relation between the different restrictions.
@@ -13,14 +12,14 @@ Age verification restrictions include another action with another appropriate me
 Age and Date/Time Restrictions support the following configuration:
 
 * Location Conditions
-    * Include business unit
-    * Exclude business unit
+  * Include business unit
+  * Exclude business unit
 * Touchpoints Groups Condition
-    * Include Touchpoint Group
-    * Excluded Touchpoint Groups
+  * Include Touchpoint Group
+  * Excluded Touchpoint Groups
 * Product Conditions
-   * Include Products/Categories/Groups
-   * Exclude Products/Categories/Groups
+  * Include Products/Categories/Groups
+  * Exclude Products/Categories/Groups
 * Scope – Transaction
 
 Customer Age Restrictions are set up as follows:
@@ -41,11 +40,11 @@ DateTime restrictions are set up as follows:
 * Included Week day
 * Excluded Week day
 * DateTime Restriction Action (Mandatory) :
-   * Prohibit or Approval action
-      * Action Type
-      * Message ID
-      * Scope (M)
-      * Authorized Roles (Mandatory for approval action only)
+  * Prohibit or Approval action
+    * Action Type
+    * Message ID
+    * Scope (M)
+    * Authorized Roles (Mandatory for approval action only)
 
 **HTTP Methods:**
 
@@ -55,15 +54,15 @@ DateTime restrictions are set up as follows:
 
 ## Add an Age Restriction
 
-Used to add an Age Restriction.
-The {ruleId} is the name of the age restriction.
+Used to add an Age Restriction. The {ruleId} is the name of the age restriction.
 
 PUT
+
 /emerald/selling-service/c1/selling-configuration/business-rules-settings/age-restrictions/{ruleId}
 
-```json
-
 Request
+
+```json
 {
     "conditions": {
         "locationCondition": {
@@ -112,15 +111,9 @@ Request
         }
     }
 }
-
 ```
 
-```json
 Response 200 OK
-{
-   OK
-}
-```
 
 ## Get Age Restriction Details
 
@@ -130,8 +123,9 @@ GET
 
 /emerald/selling-service/c1/selling-configuration/business-rules-settings/age-restrictions
 
+Response
+
 ```json
-Response 200 OK
 {
     "lastPage": true,
     "pageNumber": 0,
@@ -200,12 +194,12 @@ Used to add an Age Restriction with a Date Time restriction.
 The {ruleId} is the name of the Age Restriction Rule.
 
 PUT
-/emerald/selling-service/c1/selling-configuration/business-rules-settings/age-restrictions/{ruleId}
 
-```json
+/emerald/selling-service/c1/selling-configuration/business-rules-settings/age-restrictions/{ruleId}
 
 Request
 
+```json
 {
     "conditions": {
         "locationCondition": {
@@ -266,12 +260,7 @@ Request
 }
 ```
 
-```json
 Response 200 OK
-{
-   OK
-}
-```
 
 ## Get Age Restriction / DateTime RestrictionDetails
 
@@ -281,8 +270,9 @@ GET
 
 /emerald/selling-service/c1/selling-configuration//business-rules-settings/age-restrictions/AgeRestriction_DateTime
 
+Response
+
 ```json
-Response 200 OK
 {
     "dateTimeRestriction": {
         "condition": {
@@ -350,15 +340,15 @@ Response 200 OK
 
 A message to prompt for age verification and a message to prohibit the sale during the defined date and time can be configured for the same Rule.
 
-**Alcohol Sale Restricted Message for this Date/time**
+### Alcohol Sale Restricted Message for this Date/time
 
 PUT
-/emerald/selling-service/c1 /selling-configuration/message-settings/messages/AlcoholSaleRestrictedMessage 
 
-```json
+/emerald/selling-service/c1 /selling-configuration/message-settings/messages/AlcoholSaleRestrictedMessage
 
 Request
 
+```json
 {
   "messageId": "AlcoholSaleRestrictedMessage",
   "contextType": "BRM",
@@ -379,22 +369,17 @@ Request
 }
 ```
 
-```json
 Response 200 OK
-{
-   OK
-}
-```
 
-**Age Verification Message**
+### Age Verification Message
 
 PUT
-/emerald/selling-service/c1 /selling-configuration/message-settings/messages/Age18VerificationMessage 
 
-```json
+/emerald/selling-service/c1 /selling-configuration/message-settings/messages/Age18VerificationMessage
 
 Request
 
+```json
 {
   "messageId": "Age18VerificationMessage",
   "contextType": "BRM",
@@ -415,9 +400,4 @@ Request
 }
 ```
 
-```json
 Response 200 OK
-{
-   OK
-}
-```

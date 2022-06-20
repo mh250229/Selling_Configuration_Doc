@@ -1,8 +1,9 @@
-
 # Taxes
 
 Taxes are applied to items when the item is added to the cart. More than one tax can be applied.
+
 When a tax is applied, the item tax, transaction tax, and transaction totals are calculated correctly and returned in the response from the Cart API.
+
 In the current version of the Selling Cart Service, the Cart is also calculating the Tax with its own internal engine.
 Hence, Tax definitions are currently part of the Selling configuration.
 
@@ -20,14 +21,13 @@ The Tax Authority determines the tax rates that need to be imposed.
 
 ### Add Tax Authorities
 
-Used to add Tax Authorities.
-
 PUT
 
 /emerald/selling-service/c1/selling-configurationtax-settings/authorities/{authorityId}
 
-```json
 Request
+
+```json
 {
     "descriptions": [{
             "culture": "en-US",
@@ -37,11 +37,9 @@ Request
 }
 ```
 
-Response OK.
+Response 200 OK
 
 ### Get Tax Authorities
-
-Used to retrieve Tax Authorities details.
 
 GET
 
@@ -61,11 +59,15 @@ Response
 }
 ```
 
-### Tax Zones
+## Tax Zones
 
-This example shows how to map a tax zone to a store.
+### Map a tax zone to a store
 
-PUT /selling-configuration/tax-settings/zones/{zoneId}
+PUT
+
+ /selling-configuration/tax-settings/zones/{zoneId}
+
+Request
 
 ```json
 {
@@ -77,7 +79,7 @@ PUT /selling-configuration/tax-settings/zones/{zoneId}
 }
 ```
 
-Response Status OK
+Response 200 OK
 
 ## Tax Rates
 
@@ -106,16 +108,13 @@ The rounding options are:
 
 ### Add Tax Rates
 
-Used to add Tax Rates.
-
 PUT
 
 /emerald/selling-service/c1/selling-configuration/tax-settings/rates/{rateId}
 
-**The following example shows a request to add a 10 % tax rate.**
+Request
 
 ```json
-Request
 {
   "taxAuthority": "USA",
   "taxType": "Tax",
@@ -177,14 +176,13 @@ Request
 }
 ```
 
-Response Status OK
+Response 200 OK
 
-**The following example shows a request to add a 5 % tax rate.**
+### Add a 5 % tax rate
 
 Request
 
 ```json
-
 {
   "taxAuthority": "USA",
   "taxType": "Tax",
@@ -246,15 +244,17 @@ Request
 }
 ```
 
-Response Status OK
+Response 200 OK
 
-### Adding a Tax Rate to the Authority and Zone
+### Add a Tax Rate to the Authority and Zone
 
 PUT
+
 /selling-configuration/tax-settings/rates/{rateId}
 
-```json
 Request
+
+```json
 {
     "taxType": "Tax",
     "taxAuthority": "TaxAuthority1",
@@ -301,8 +301,6 @@ Request
 
 ### Get a Specific Tax Rate
 
-Used to retrieve Tax Rate details for a specific tax.
-
 GET
 
 /emerald/selling-service/c1/selling-configuration/tax-settings/rates/{rateId}
@@ -310,7 +308,6 @@ GET
 Response
 
 ```json
-
 {
     "rateId": "Rate1",
     "taxAuthority": "USA",
@@ -374,8 +371,6 @@ Response
 ```
 
 ### Get All Tax Rates
-
-Used to retrieve Tax Rate details of all tax rates.
 
 GET
 
@@ -587,21 +582,15 @@ Tax Exemptions can be reversed.
 * GET
 * DELETE
 
-### Add Tax Exemption
-
-Used to add Tax Exemptions.
-The following example shows how to add a tax exemption for eWIC Tender exemption.
+### Add a Tax Exemption
 
 PUT
 
 /emerald/selling-service/c1/selling-configuration/tax-settings/exemptions/{exemptionId}
 
-{exemptionId} = the exemption name.
+Request
 
-PUT
-/emerald/selling-service/selling-configuration/v1/tax-settings/exemptions/eWic_TaxExemptionUSA%20
-
-```Json
+```json
 {
   "taxAuthority": "USA1",
   "descriptions": [
@@ -626,15 +615,15 @@ PUT
 }
 ```
 
-Response: OK
+Response 200 OK
 
-### Get Tax Exemptions
-
-Used to retrieve all the details of all Tax Exemptions.
+### Get the Tax Exemptions
 
 GET
 
 /emerald/selling-service/c1/selling-configuration/tax-settings/exemptions
+
+Request
 
 ```json
 {
@@ -686,8 +675,9 @@ PUT
 
 /emerald/selling-service/c1/selling-configuration/tax-settings/tax-parameters/{enterpriseUnit}
 
-```json
 Request
+
+```json
 {
   "enterpriseUnit": "00000000000000000000000000035295",
   "customerExemptionIdRequired": true,
@@ -695,17 +685,15 @@ Request
 }
 ```
 
-Response Status OK
+Response 200 OK
 
 ### Get All Tax Parameters
-
-Used to retrieve all the Tax Parameter details.
 
 GET
 
 /emerald/selling-service/c1/selling-configuration/tax-settings/tax-parameters
 
-Response Status OK
+Response
 
 ```json
 {
@@ -740,13 +728,15 @@ Compound tax configuration is not part of the Base Configuration.
 
 The following are examples of Compound Tax Configuration required for the flows in the Selling Services.
 
-### Tax Rate 222 ($3.00 Fixed)
+### Add a Tax Rate 222 ($3.00 Fixed)
 
 **HTTP Method:**
 
 PUT
 
 /emerald/selling-service/selling-configuration/v1/tax-settings/rates/222
+
+Request
 
 ```json
 {
@@ -802,13 +792,15 @@ PUT
 
 Response 200 OK
 
-### Tax Rate 333 (10% Percent)
+### Add Tax Rate 333 (10% Percent)
 
 **HTTP Method:**
 
 PUT
 
 /emerald/selling-service/selling-configuration/v1/tax-settings/rates/333
+
+Request
 
 ```json
 {
@@ -864,13 +856,15 @@ PUT
 
 Response 200 OK
 
-### Tax Rate 444 (5% Percent)
+### Add Tax Rate 444 (5% Percent)
 
 **HTTP Method:**
 
 PUT
 
 /emerald/selling-service/selling-configuration/v1/tax-settings/rates/444
+
+Request
 
 ```json
 {
@@ -926,7 +920,7 @@ PUT
 
 Response 200 OK
 
-### Tax Rate 555 - Multi Tier Compound Tax
+### Add Tax Rate 555 - Multi Tier Compound Tax
 
 **HTTP Method:**
 
@@ -1019,7 +1013,7 @@ Multi Tiered tax configuration is not part of the Base Configuration.
 
 The following are examples of Multi Tiered Tax Configuration required for the flows in the Selling Services.
 
-## Tax Rate 1
+## Add Tax Rate 1
 
 **HTTP Method:**
 
@@ -1111,7 +1105,7 @@ Request
 
 Response  200 OK
 
-## Tax Rate 5
+## Add Tax Rate 5
 
 **HTTP Method:**
 
@@ -1199,21 +1193,15 @@ Top Tier taxes enable Tax Authorities to apply taxes in which one tax rate deter
 
 The rate is taken from the Tax Tier table based on the item’s price. For example, Tier 1 with a 4.5% tax rate is applied to all items between $0.00 - $100.00. Tier 2 with a 8 % tax rate is applied to all items between $100.01 - $200.00
 
-## Configuring a Top Tier Tax
-
-Used to configure Top Tier Taxes imposed by the Tax Authority.
-
-Top Tier tax configuration is not part of the Base Configuration.
-
-The following are examples of Top Tier Tax Configuration required for the flows in the Selling Services.
-
-### Top Tier Tax Rate 1
+## Add Top Tier Tax Rate 1
 
 **HTTP Method:**
 
 PUT
 
 /emerald/selling-service/selling-configuration/v1/tax-settings/rates/Rate1
+
+Request
 
 ```json
 {
@@ -1284,13 +1272,15 @@ PUT
 }
 ```
 
-### Top Tier Tax Rate 2
+### Add Top Tier Tax Rate 2
 
 **HTTP Method:**
 
 PUT
 
 /emerald/selling-service/selling-configuration/v1/tax-settings/rates/Rate2
+
+Request
 
 ```json
 {
@@ -1349,13 +1339,15 @@ PUT
 }
 ```
 
-### Tax Rate 111
+### Add Tax Rate 111
 
 **HTTP Method:**
 
 PUT
 
 /emerald/selling-service/selling-configuration/v1/tax-settings/rates/Rate1
+
+Request
 
 ```json
 {
@@ -1425,4 +1417,3 @@ PUT
     "taxableAmountRoundingStrategyKey": null
 }
 ```
-

@@ -2,7 +2,7 @@
 # Data Patterns
 
 Data patterns provide the Selling Service the ability to identify and decode barcode / QR-Code data.
-For example, when Scanning an Item with a Bar-code data of "2010029020519", a predefined data pattern of 20PPPPPxCCCCz can be used to identify that this is a price embedded barcode, that the Item Id is "10029" and the price is "20.51".
+For example, when Scanning an Item with barcode data of "2010029020519", a predefined data pattern of 20PPPPPxCCCCz can be used to identify that this is a price embedded barcode, that the Item Id is "10029" and the price is "20.51".
 Given such a data pattern, sending "2010029020519" to the Cart would result the item added to the Cart with that price.
 Without the data pattern, the whole string "2010029020519" would be assumed to be an Item Code, resulting in an "Item not found" error.
 

@@ -14,14 +14,13 @@ The following examples show a request to add a Reason Code Groups to contain the
 
 ## Add Reason Code Groups
 
-Used to add Reason Code groups.
-
 PUT
 
 /emerald/selling-service/c1/selling-configuration/reason-code-settings/reason-code-groups/{reasonCodeGroupId}
 
-```json
 Request
+
+```json
 {
     "descriptions": [
         {
@@ -32,23 +31,17 @@ Request
 }
 ```
 
-```json
-Response Status OK
-{
-   OK
-}
-```
+Response 200 OK
 
 ## Get Reason Code Groups
-
-Used to get Reason Code groups.
 
 GET
 
 /emerald/selling-service/c1/selling-configuration/reason-code-settings/reason-code-groups
 
+Response
+
 ```json
-Response Status OK
 {
     "lastPage": true,
     "pageNumber": 0,
@@ -68,16 +61,15 @@ Response Status OK
 }
 ```
 
-## Add Reason Codes
-
-Used to add Reason Codes to a Reason Code Group.
+## Add Reason Codes to a Reason Code group
 
 PUT
 
 /emerald/selling-service/c1/selling-configuration/reason-code-settings/reason-codes/{reasonCodeId}
 
-```json
 Request
+
+```json
 {
     "descriptions": [
         {
@@ -89,23 +81,17 @@ Request
 }
 ```
 
-```json
-Response Status OK
-{
-   OK
-}
-```
+Response 200 OK
 
-## Get Reason Codes
-
-Used to retrieve Reason Codes.
+## Retrieve Reason Codes
 
 GET
 
 /emerald/selling-service/c1/selling-configuration/reason-code-settings/reason-codes
 
+Response
+
 ```json
-Response Status OK
 {
     "ReasonCodeId": "{reasonCodeId}",
     "descriptions": [

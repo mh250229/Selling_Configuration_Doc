@@ -1,4 +1,3 @@
-
 # Return Policy
 
 ## Return Policy Types
@@ -19,8 +18,7 @@ The NRR Policy can also be applied to Items returned within a Sale transaction, 
 
 * **Bottle Deposit** - to define a refund policy when empty bottles are returned to refund the deposit amount. The Restrictions and Reason Codes options applied to other return policies are supported by the Bottle Deposit Return Policy. If the cart has a Return Bin Type Bottle Deposit, only items associated to the Bottle Deposit groups in the catalog can be returned. A Return Bin from Type - Bottle Deposit can only be created if there is an effective Bottle Deposit Return Policy for the store.
 
-**Note:**
-Only Non Receipted Returns can be done without the BSP.
+**Note:** Only Non Receipted Returns can be done without the BSP.
 
 **All Return Policies must be configured with the following mandatory options:**
 
@@ -78,7 +76,7 @@ The out of the box configuration for the TBR Policy includes the following:
 * Best for Customer – The customer is favored when the item is returned against a Receipt in which the same item was purchased more than once and sold for different prices.
 * Receipt lookup period: - 90 days.
 
-Example: Add a TBR Return Policy.
+### Add a TBR Return Policy
 
 **HTTP Method:**
 
@@ -181,19 +179,16 @@ Request
 }
 ```
 
-```json
 Response 200 OK
-{
-}
-```
 
 ## NRR Return Policy
 
-Example: Add an NRR Return Policy.
+### Add an NRR Return Policy
 
 **HTTP Method:**
 
 PUT
+
 /emerald/selling-service/c1/selling-configuration/return-policy-settings/return-policy/{returnPolicyId}
 
 Request
@@ -269,11 +264,7 @@ Request
   }
 ```
 
-```json
 Response 200 OK
-{
-}
-```
 
 ## BDR Return Policy
 
@@ -284,11 +275,12 @@ The Out of Box configuration for the Bottle Deposit Return Policy includes the f
 
 There is no Reason Code or Restriction configuration.
 
-Example: Add a Bottle Deposit Return (BDR) Policy.
+### Add a Bottle Deposit Return (BDR) Policy
 
 **HTTP Method:**
 
 PUT
+
 /emerald/selling-service/c1/selling-configuration/return-policy-settings/return-policy/{returnPolicyId}
 
 Request
@@ -346,9 +338,4 @@ Request
 }
 ```
 
-```json
 Response 200 OK
-{
-}
-```
-

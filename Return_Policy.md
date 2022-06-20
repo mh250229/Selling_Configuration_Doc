@@ -1,11 +1,12 @@
-
 # Return Policy
 
 ## Return Policy Types
 
 This service allows to return items according to defined policies Non Receipt Returns (NRR), TBR (Transaction Based Returns (TBR), and Return All.
-Emerald is integrated with the Business Service Platform (BSP) to support Central Returns. All retail transactions are retained in a central location in the BSP TDM application, which is accessible by all retailers.
+
+Emerald 2.0 is integrated with the Business Service Platform (BSP) to support Central Returns. All retail transactions are retained in a central location in the BSP TDM application, which is accessible by all retailers.
 The Return Policy determines how to handle items returned to the store by customers.
+
 Return Policies can be managed centrally from head office. The Central Returns solution provides central management with all return transactions, and determines if items can be returned, when the items can be returned, and specific rules preventing items from being returned for different reasons. For example: Not accepting the return of an item after its return expiry date.
 
 **Return Policy types include:**
@@ -49,7 +50,7 @@ The out of the box configuration for the TBR Policy includes the following:
 * Best for Customer – The customer is favored when the item is returned against a Receipt in which the same item was purchased more than once and sold for different prices.
 * Receipt lookup period: - 90 days.
 
-Example: Add a TBR Return Policy.
+### Add a TBR Return Policy
 
 **HTTP Method:**
 
@@ -189,13 +190,9 @@ Request
 }
 ```
 
-```json
 Response 200 OK
-{
-}
-```
 
-Get a TBR Return Policy.
+### Get a TBR Return Policy
 
 **HTTP Method:**
 
@@ -338,11 +335,12 @@ Response
 
 ## NRR Return Policy
 
-Example: Add an NRR Return Policy.
+### Add an NRR Return Policy
 
 **HTTP Method:**
 
 PUT
+
 /emerald/selling-service/c1/selling-configuration/return-policy-settings/return-policy/returnpolicy1
 
 Request
@@ -479,7 +477,7 @@ Request
 
 Response 200 OK
 
-Example: Get an NRR Return Policy.
+### Get an NRR Return Policy
 
 **HTTP Method:**
 
@@ -522,7 +520,7 @@ Response
 }
 ```
 
-Example: POST Effective Return Policies.
+## POST Effective Return Policies
 
 **HTTP Method:**
 
@@ -543,7 +541,7 @@ Request
 
 Response 200 OK
 
-Example: Get Effective Return Policies
+## Get Effective Return Policies
 
 **HTTP Method:**
 
@@ -577,7 +575,7 @@ Response
 }
 ```
 
-Example: Get All Return Policies.
+## Get All Return Policies.
 
 **HTTP Method:**
 
@@ -631,11 +629,12 @@ The Out of Box configuration for the Bottle Deposit Return Policy includes the f
 
 There is no Reason Code or Restriction configuration.
 
-Example: Add a Bottle Deposit Return (BDR) Policy.
+### Add a Bottle Deposit Return (BDR) Policy
 
 **HTTP Method:**
 
 PUT
+
 /emerald/selling-service/c1/selling-configuration/return-policy-settings/return-policy/{returnPolicyId}
 
 Request
@@ -664,8 +663,4 @@ Request
 }
 ```
 
-```json
 Response 200 OK
-{
-}
-```
