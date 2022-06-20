@@ -289,12 +289,11 @@ Request
 {
   "state": "BDR",
   "name": "return-policy-BDR",
-  "startDateTime": {
-    "nominalValue": "2021-06-19T16:30:00.2348661"
+ "startDateTime": {
+    "nominalValue": "2021-04-24T12:24:51.4415108"
   },
   "endDateTime": {
-    "nominal
-    Value": "2031-06-20T00:00:00"
+    "nominalValue": "2031-04-25T00:00:00"
   },
   "isSubmitted": true,
   "priceVerificationRequired": false,
@@ -303,7 +302,7 @@ Request
     "00000000000000000000000000035295"
   ],
   "isBestForGuest": true,
-   "returnRules": {
+   "returnRules": 
     "expressionRules": [
       {
         "name": "AllowBottleDepositGroupOnly",
@@ -337,5 +336,4 @@ Request
   "requiredCustomerDetails": null
 }
 ```
-
 Response 200 OK
